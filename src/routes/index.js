@@ -9,7 +9,7 @@ export default function RootRoute() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* 기본 루트페이지 */}
+        {/* 기본 루트페이지 */ }
         <Route path="/" element={<IndexPage />} key="index" />
 
         {/* 추가되는 페이지 */}
