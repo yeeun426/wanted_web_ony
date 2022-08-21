@@ -16,10 +16,10 @@ function swiper() {
                 centeredSlides={true}
                 spaceBetween={30}
                 loop={true}
-                // autoplay={{
-                // delay: 5000,
-                // disableOnInteraction: false
-                // }}
+                autoplay={{
+                delay: 5000,
+                disableOnInteraction: false
+                }}
                 navigation={true}
                 modules={[Autoplay, Navigation]}
                 className="mySwiper"
@@ -203,7 +203,7 @@ const SwiperWrapper = styled.div`
         border-radius: 4px;
         background-color: #fff;
         text-align: left;
-        left: 34px;
+        left: 25px;
 
         span{
             font-size: 14px;
