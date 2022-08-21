@@ -1,6 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import { TextMiddle } from "./styled";
 import styled from 'styled-components';
 import icon from '../imgs/icon.JPG';
 
