@@ -181,7 +181,7 @@ function swiper() {
 export default swiper;
 
 const SwiperWrapper = styled.div`
-    padding-top: 25px;
+    padding-top: 80px;
 
     .swiper-slide-active{
         .slideDetails{
@@ -193,6 +193,48 @@ const SwiperWrapper = styled.div`
         .slideDetails{
             display: none;
         }
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      display: none;
+
+    }
+
+    .mySwiper {
+        text-align: center;
+    }
+
+    .swiper-button-prev {
+        left: calc((100% - 1210px)/2);
+        color: transparent;
+        background-color: #fff;
+        opacity: .5;
+        border-radius: 15px;
+        height: 60px;
+        top: 47%;
+
+        width: 30px;
+        background-image: url("https://static.thenounproject.com/png/1407190-200.png");
+        background-size: 18px 17px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .swiper-button-next {
+        right: calc((100% - 1200px)/2);
+        color: transparent;
+        background-color: #fff;
+        opacity: .5;
+        border-radius: 15px;
+        top: 47%;
+        
+        height: 60px;
+        width: 30px;
+        background-image: url("https://icons-for-free.com/download-icon-arrows+chevron+direction+forward+next+right+icon-1320085938847587870_0.svg");
+        background-size: 17px 27px;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     .slideDetails{
@@ -215,30 +257,6 @@ const SwiperWrapper = styled.div`
             fill: #36f;
         }
         
-    }
-
-    .mySwiper {
-        text-align: center;
-    }
-
-    .swiper-button-prev {
-        left: calc((100% - 1210px)/2);
-        color: transparent;
-        background-color: #fff;
-        opacity: .5;
-        border-radius: 15px;
-        height: 60px;
-        top: 47%;
-    }
-
-    .swiper-button-next {
-        right: calc((100% - 1200px)/2);
-        color: transparent;
-        background-color: #fff;
-        opacity: .5;
-        border-radius: 15px;
-        height: 60px;
-        top: 47%;
     }
 
     img{
