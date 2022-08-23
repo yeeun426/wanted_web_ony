@@ -11,13 +11,8 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   return (
-    <HomeWrapper>
-      <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ficon-menu.png&amp;w=undefined&amp;q=75" alt="hamberger menu" style="width:17px;height:14px;object-fit:contain"></img>
-    </HomeWrapper>
+    <>
+    </>
   );
 }
 
-const IndexText = styled(TextMiddle)`
-  font-size: 30px;
-  font-weight: 600;
-`;

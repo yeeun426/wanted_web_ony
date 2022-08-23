@@ -4,30 +4,30 @@ import styled from 'styled-components';
 function footer() {
     return(
         <FooterWrapper>
-            <div className='footerUpper'>
+            <div className='footer-upper'>
                         
                 <UpperItem>
                     <img style={{marginRight:"50px"}} src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Flogo_wanted_black.png&amp;w=110&amp;q=100" alt="wanted" />
                    
-                    <div className="footerDetails">기업소개</div>
-                    <div className="footerDetails">이용약관</div>
-                    <div className="footerDetails">개인정보 처리방침</div>
-                    <div className="footerDetails">고객센터</div>
+                    <div className="footer-details">기업소개</div>
+                    <div className="footer-details">이용약관</div>
+                    <div className="footer-details">개인정보 처리방침</div>
+                    <div className="footer-details">고객센터</div>
                 </UpperItem>
 
                 <UpperItem>
-                    <img className="footerSns" src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_instagram.png&amp;w=20&amp;q=100" alt="instagram" />
-                    <img className="footerSns" src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_youtube.png&amp;w=25&amp;q=100" alt="youtube" />
-                    <img className="footerSns" src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_facebook.png&amp;w=20&amp;q=100" alt="facebook" />
-                    <img className="footerSns" src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_blog.png&amp;w=20&amp;q=100" alt="blog" />
-                    <img className="footerSns" src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_kakao.png&amp;w=19&amp;q=100" alt="kakao" />
-                    <img className="footerSns" src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_post.png&amp;w=20&amp;q=100" alt="post" />
-                    <img className="footerSns" src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_apple.png&amp;w=17&amp;q=100" alt="apple" />
-                    <img className="footerSns" src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_google.png&amp;w=17&amp;q=100" alt="google" />
+                    <img className="footer-sns" src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_instagram.png&amp;w=20&amp;q=100" alt="instagram" />
+                    <img className="footer-sns" src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_youtube.png&amp;w=25&amp;q=100" alt="youtube" />
+                    <img className="footer-sns" src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_facebook.png&amp;w=20&amp;q=100" alt="facebook" />
+                    <img className="footer-sns" src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_blog.png&amp;w=20&amp;q=100" alt="blog" />
+                    <img className="footer-sns" src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_kakao.png&amp;w=19&amp;q=100" alt="kakao" />
+                    <img className="footer-sns" src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_post.png&amp;w=20&amp;q=100" alt="post" />
+                    <img className="footer-sns" src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_apple.png&amp;w=17&amp;q=100" alt="apple" />
+                    <img className="footer-sns" src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_google.png&amp;w=17&amp;q=100" alt="google" />
                 </UpperItem>
             </div>
 
-            <div className='footerLower'>
+            <div className='footer-lower'>
                 <div>
                  (주)원티드랩 (대표이사:이복기) | 서울특별시 송파구 올림픽로 300 롯데월드타워 35층 | 통신판매번호 : 2020-서울송파-3147
                 <br />
@@ -46,7 +46,7 @@ const FooterWrapper = styled.div`
     padding: 18px 0 65px;
     border-top: 1px solid #ececec;
 
-    .footerUpper{
+    .footer-upper{
         display: flex;  
         width: 1020px;
 
@@ -59,12 +59,12 @@ const FooterWrapper = styled.div`
         color: #3a3a3a;
         line-height: 2.6;
 
-        .footerDetails{
+        .footer-details{
             margin-right: 45px;
         }
     }
 
-    .footerLower{
+    .footer-lower{
         font-size: 12px;
         font-weight: 500;
         line-height: 1.6666666667em;
@@ -79,7 +79,7 @@ const FooterWrapper = styled.div`
 const UpperItem = styled.div`
     display: flex;
 
-    .footerSns{
+    .footer-sns{
         height: 20px;
         margin-left: 15px;
     }
