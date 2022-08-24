@@ -291,6 +291,77 @@ export const MainContainerStyle = styled.div`
       display: none;
     }
   }
+
+  // jobsfeed
+
+  .mc-title img{
+    width: 24px;
+    margin: -3px 5px;
+  }
+
+  .jf-info{
+    display: flex;
+    align-items: center;
+  }
+
+  .jf-info img{
+    width: 42px;
+    height: 42px;
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 10%);
+    margin-right: 12px;
+    border: 1px solid #ececec;
+    border-radius: 0px;
+  }
+
+  .jf-items { 
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+  }
+
+  .jf-items button{
+    color: #002fdb;
+    border-color: #002fdb;
+    background-color: #fff;
+    height: 40px;
+    font-size: 15px;
+    border: 1px solid #e1e2e3;
+    padding: 11px 25.5px 12px;
+    border-radius: 25px;
+    font-family: pretendard;
+  }
+
+  .jf-name{
+    font-size: 18px;
+  }
+
+  .jf-name span{
+    font-size: 14px;
+    color: #999999;
+  }
+
+  .jf-company img{
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    margin-top: 8px;
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: 0px;
+  }
+
+  .jf-title{
+    margin-top: 16px;
+  }
+
+  .jf-company-name{
+    font-size: 14px;
+    margin: 10px 0;
+  }
+
+  .jf-reward{
+    margin-top: 10px;
+    font-size: 14px;
+  }
 `;
 
 export const SubscribeStyle = styled.div`
@@ -302,7 +373,7 @@ export const SubscribeStyle = styled.div`
     margin-top: 10px;
   }
 
-  .subscribe-contain60pxmaincomer button{
+  .subscribe-container button{
       color: #fff;
       background-color: #3366ff;
       width: 260px;
@@ -562,3 +633,137 @@ export const ModalOverlayStyle = styled.div`
   }
 `
 
+export const JobsFeedStyle = styled.div`
+
+.match-banner button{
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: #36f;
+    font-size: 16px;
+    color: #fefefe;
+    line-height: 22px;
+    border: none;
+    font-family: pretendard;
+}
+
+.match-banner{
+  background: #f4f8fb;
+  background-image: url(https://wanted-dev.static.wanted.co.kr/banner/Jobsfeed_ai_banner.png);
+  background-repeat: no-repeat;
+  background-repeat-x: no-repeat;
+  background-repeat-y: no-repeat;
+  background-size: cover;
+  padding-bottom: 60px;
+  text-align: center;
+
+  #mb-svg{
+    width: 140px;
+    margin-left: -65px;
+  }
+  #mb-logo{
+    margin-bottom: 40px;
+    margin-left: -15px;
+  }
+}
+
+.mb-title{
+  padding: 20px 0 10px;
+}
+
+.mb-info{
+  display: flex;
+  font-size: 22px;
+  place-items: center;
+  justify-content: center;
+
+  img{
+    height: fit-content;
+  }
+}
+
+  .mb-recommend{
+    color: #555;
+    font-size: 16px;
+    line-height: 19.2px;
+    margin: 8px 0 20px;
+  }
+
+  .career-banner{
+    display: flex;
+    height: 150px;
+    border-radius: 0;
+    margin: 20px 0 60px;
+    background: linear-gradient(90deg,#ddebff -.28%,#b7d8ff);
+
+    img{
+      width: 236px;
+      height: 169px;
+      position: relative;
+      bottom: 12px;
+    }
+  }
+
+  .cb-txt{
+    font-size: 24px;
+    line-height: 29px;
+    color: #5071dc;
+  }
+
+  .cb-container button{
+    height: 36px;
+    font-size: 14px;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 119px;
+    margin-top: 10px;
+    border-radius: 25px;
+    background-color: #5071dc;
+    color: #fff;
+    font-family: pretendard;
+    border: none;
+  }
+
+  .cb-wrapper{
+    display: flex;
+    width: 1060px;
+    align-items: center;
+    margin: auto;
+    justify-content: space-between;
+  }
+
+  .shortcut-navbar{
+    width: 1060px;
+    margin: auto;
+    text-align: center;
+    height: 80px;
+    display: flex;
+
+    padding: 60px 0 85px;
+  }
+
+  .shortcut-navbar button{
+    border: none;
+    display: flex;
+    gap: 10px;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Pretendard';
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .sn-left{
+    background-color: #f2f5ff;
+    border-top-left-radius: 38.5px;
+    border-bottom-left-radius: 38.5px;
+    border-left: none;
+  }
+
+  .sn-right{
+    background-color: #f2fbf5;
+    border-top-right-radius: 38.5px;
+    border-bottom-right-radius: 38.5px;
+  }
+`;

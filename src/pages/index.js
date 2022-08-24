@@ -228,7 +228,7 @@ export default function IndexPage() {
           </Swiper>
           </div>
         </MainContainerStyle>
-
+        <hr style={{width: "1060px", backgroundColor:"#ececec", height:"2px", border:"none"}}/>
         <MainContainerStyle width={250} height={170} fontsize={14}>
           <div className="mc-main-title">
             <div className="mc-title">직장인을 위한 Wanted+ VOD</div>
