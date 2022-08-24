@@ -265,6 +265,32 @@ export const MainContainerStyle = styled.div`
       border: 1px solid #ececec;
     }
   }
+
+  .articleSwiper {
+    .swiper-button-prev, .swiper-button-next{
+      background-color: white;
+      background-size: 17px 17px;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid #aaa;
+      box-shadow: 0 2px 2px 0 rgb(0 0 0 / 5%);
+    }
+    .swiper-button-next {
+      background-image: url(https://icons-for-free.com/download-icon-arrows+chevron+direction+forward+next+right+icon-1320085938847587870_0.svg);
+    }
+    
+    .swiper-button-prev {
+      background-image: url(https://static.thenounproject.com/png/1407190-200.png);
+    }
+    
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      display: none;
+    }
+  }
 `;
 
 export const SubscribeStyle = styled.div`

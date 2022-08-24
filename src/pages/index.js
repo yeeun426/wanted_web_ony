@@ -35,7 +35,7 @@ export default function IndexPage() {
           <div className='ci-swiper'>
             <Swiper
               slidesPerView={7.5}
-              spaceBetween={3}
+              spaceBetween={30}
               slidesPerGroup={2}
               navigation={true}
               modules={[Navigation]}
@@ -209,14 +209,23 @@ export default function IndexPage() {
           </div>
 
           <div className="mc-list">
+          <Swiper
+            slidesPerView={4}
+            spaceBetween={30}
+            slidesPerGroup={4}
+            navigation={true}
+            className="articleSwiper">
+
           {home.article.map((article)=>(
+            <SwiperSlide>
             <div className="mc-containers" key={article.id}>
               <img src={article.image} alt={article.title} />            
               <div className="mc-info">{article.title}</div>
               <span>{article.info}</span>
             </div>
+            </SwiperSlide>
           ))}
-          
+          </Swiper>
           </div>
         </MainContainerStyle>
 
@@ -228,38 +237,16 @@ export default function IndexPage() {
               <svg class="SvgIcon_SvgIcon__root__svg__DKYBi" viewBox="0 0 19 19"><path d="m11.955 9-5.978 5.977a.563.563 0 0 0 .796.796l6.375-6.375a.563.563 0 0 0 0-.796L6.773 2.227a.562.562 0 1 0-.796.796L11.955 9z"></path></svg>
             </div>
           </div>
-
+          
           <div className="mc-list">
-          {home.VOD.map((vod)=>(
-            <div className="mc-containers">
-              <img src={vod.image} alt={vod.title} />            
-              <div className="mc-info">{vod.title}</div>
-              <div className="mc-card">{vod.info}</div>
-              <span>{vod.subinfo}</span>
-            </div>
-
-
-            // <div className="mc-containers">
-            //   <img src="https://image.wanted.co.kr/optimize?src=http%3A%2F%2Fwanted.video.kr.kollus.com%2Fkr%2Fsnapshot%2Fwanted%2F20210512%2F2%2F46759799.jpg&amp;w=800&amp;q=75" alt="터지는 콘텐츠는 이렇게 만듭니다 Part 2 : 독자의 마음 - 박창선" />            
-            //   <div className="mc-info">애프터모멘트 박창선</div>
-            //   <div className="mc-card">터지는 콘텐츠는 이렇게 만듭니다 Part 2 : 독자의 마음 - 박창선</div>
-            //   <span>터지는 콘텐츠는 이렇게 만듭니다 : Wanted How To</span>
-            // </div>
-
-            // <div className="mc-containers">
-            //   <img src="https://image.wanted.co.kr/optimize?src=http%3A%2F%2Fwanted.video.kr.kollus.com%2Fkr%2Fsnapshot%2Fwanted%2F20200819%2F04%2F97576753.jpg&amp;w=800&amp;q=75" alt="모춘&amp;대오의 퇴사 후 무자본 창업기" />            
-            //   <div className="mc-info">모빌스그룹 모춘, 모빌스그룹 대오</div>
-            //   <div className="mc-card">모춘&대오의 퇴사 후 무자본 창업기</div>
-            //   <span>모춘&대오의 퇴사 후 무자본 창업기 : Career Talk #5</span>
-            // </div>
-
-            // <div className="mc-containers">
-            //   <img src="https://image.wanted.co.kr/optimize?src=http%3A%2F%2Fwanted.video.kr.kollus.com%2Fkr%2Fsnapshot%2Fwanted%2F20210512%2F2%2F32385576.jpg&amp;w=800&amp;q=75" alt="터지는 콘텐츠는 이렇게 만듭니다 Part 3 : 위트와 무리수레벨 조절하기 - 박창선" />            
-            //   <div className="mc-info">애프터모멘트 박창선</div>
-            //   <div className="mc-card">터지는 콘텐츠는 이렇게 만듭니다 Part 3 : 위트와 무리수레벨 조절하기 - 박창선</div>
-            //   <span>터지는 콘텐츠는 이렇게 만듭니다 : Wanted How To</span>
-            // </div> 
-          ))}
+            {home.VOD.map((vod)=>(
+                <div className="mc-containers">
+                  <img src={vod.image} alt={vod.title} />            
+                  <div className="mc-info">{vod.title}</div>
+                  <div className="mc-card">{vod.info}</div>
+                  <span>{vod.subinfo}</span>
+                </div>
+            ))}
           </div>
         </MainContainerStyle>
 
