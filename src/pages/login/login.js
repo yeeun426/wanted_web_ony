@@ -1,10 +1,38 @@
-import React,{useEffect} from 'react'
+import React,{useEffect, useState} from 'react'
 import styled from 'styled-components';
 import icon from '../../imgs/icon.JPG';
 import { ModalOverlayStyle } from '../../components/styled';
 
 export default function LoginPage(props) {
   const {test} = props;
+  const [email, setEmail] = useState('');
+  const [signup, setSignup] = useState(false);
+
+  const [emailValid, setEmailValid] = useState(false);
+
+  const User = {
+    email: 'thsudkcla7@naver.com',
+    pw: '1234'
+  }
+
+  const onClickConfirm = () => {
+    if(email === User.email) {
+      alert('로그인 성공');
+    } else {
+      alert('회원가입 하기')
+      setSignup(true);
+    }
+  }
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+    const regex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+    if(regex.test(email)) {
+      setEmailValid(true);
+    } else{
+      setEmailValid(false);
+    }
+  }
 
   useEffect(() => {
     document.body.style.cssText = `
@@ -20,7 +48,9 @@ export default function LoginPage(props) {
   }, []);
 
   return (
-    <ModalOverlayStyle onClick={()=>test(false)}>
+    <>
+    {!signup ?
+    <ModalOverlayStyle>
       <div className="modal-wrapper">
         <div className="modal-icon">
           <img src={icon} alt="icon" style={{height:"20px"}}/>
@@ -34,10 +64,20 @@ export default function LoginPage(props) {
           
           <div className="modal-items">
             <label>이메일</label>
-            <input type="text" placeholder="이메일을 입력해 주세요." />
+            <input 
+              type="text" 
+              placeholder="이메일을 입력해 주세요." 
+              value={email} 
+              onChange={handleEmail}
+              />
+            <div className="error-message">
+              { !emailValid && email.length > 0 && (
+              <div>올바른 이메일 형식을 입력해주세요.</div>
+              )}
+            </div>
           </div>  
             
-          <button id="emailBtn">이메일로 계속하기</button>
+          <button id="emailBtn" onClick={onClickConfirm}>이메일로 계속하기</button>
 
           <div id="modalOr">or</div>
           <div id="modalNext">다음 계정으로 계속하기</div>
@@ -79,6 +119,82 @@ export default function LoginPage(props) {
         </div>
       </div>
     </ModalOverlayStyle>
+
+    :
+    <ModalOverlayStyle paddingBottom={22}>
+      <div className="modal-wrapper">
+        <div className="signup-title">
+          <div>회원가입</div>
+        </div>
+        
+        <div className="modal-container">
+          <div className="modal-items">
+            <label>이름</label>
+            <input 
+              type="text" 
+              placeholder="이름을 입력해 주세요." 
+            />
+          </div>
+
+          <div className="modal-items">
+            <label>휴대폰 번호</label>
+            <select defaultValue='한국'>
+              <option value='한국'>대한민국 +82</option>
+              <option value='일본'>Japan +81</option>
+              <option value='태국'>Taiwan +886</option>
+              <option value='일본'>United States +1</option>
+            </select>
+            <div className="number-certif">
+              <input 
+                type="text" 
+                placeholder="(예시)01034567890" 
+              />
+              <button>인증번호 받기</button>  
+            </div>
+            <input 
+              type="text" 
+              placeholder="인증번호를 입력해 주세요." 
+            />
+          </div>
+
+          <div className="modal-items">
+            <label>비밀번호</label>
+            <input 
+              type="text" 
+              placeholder="비밀번호를 입력해 주세요." 
+            />
+            <div id="pwTxt">영문 대소문자, 숫자, 특수문자를 3가지 이상으로 조합하여 8자 이상 입력해 주세요.</div>
+          </div>  
+
+          <div className="modal-items">
+            <label>비밀번호 확인</label>
+            <input 
+              type="text" 
+              placeholder="비밀번호를 다시 한번 입력해 주세요." 
+            />  
+          </div>
+          
+          <div className="agree-items">
+            <input type="checkbox" />
+            <span>전체 동의</span>
+          </div>
+
+          <div className="agree-subitems">
+            <input type="checkbox" />
+            <span>개인정보 수집 빛 이용 동의(필수)</span>
+          </div>
+
+          <div className="agree-subitems">
+            <input type="checkbox" />
+            <span>이벤트 소식 등 알림 정보 받기</span>
+          </div>
+
+          <button id="signupBtn" onClick={()=>test(false)}>회원가입하기</button>
+
+        </div>
+      </div>
+    </ModalOverlayStyle>
+    }</>
   );
 };
 

@@ -1,11 +1,14 @@
 import React,{useState} from 'react'
+//styled components
 import {CreatorBannerStyle, CareerInsightStyle, RecruitmentStyle, SubscribeStyle, MainContainerStyle, LineBannerStyle} from '../components/styled';
-
+//components
 import Header from '../components/header';
 import SwiperComponent from '../components/swiper';
 import Footer from '../components/footer';
 import LoginModal from './login/login';
-
+// dummydata 
+import home from '../data/home.json'
+//swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Autoplay } from "swiper";
 import "swiper/css";
@@ -31,7 +34,7 @@ export default function IndexPage() {
 
           <div className='ci-swiper'>
             <Swiper
-              slidesPerView={8}
+              slidesPerView={7.5}
               spaceBetween={3}
               slidesPerGroup={2}
               navigation={true}
@@ -160,56 +163,21 @@ export default function IndexPage() {
             </div>
           </div>
 
-          <MainContainerStyle width={250} height={170} fontsize={16} widthtotal={1080}>
+          <MainContainerStyle width={250} height={170} fontsize={16} widthtotal={1080} paddingTop={1}>
             <div className="mc-list" style={{flexWrap: "wrap"}}>
-              <div className="mc-containers">
-              <img src="https://image.wanted.co.kr/optimize?src=http%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fservice%2Fguest%2Fimage%2FA6uz6nXUgEGdfChIzr_CSEeh0OU.JPG&amp;w=500&amp;q=75" alt="[리모트워크] 페이스북의 메타버스 행보" />            
-                <div className="mc-info">[리모트워크]페이스북의 메타버스 행보</div>
-                <span>1. 메타버스 메타버스, 초월을 의미하는 메타(meta)와 전 세계, 우주 등의 의미를 담은 유니버스(universe)의 합성어. 현실공간과 가상 공간이 유기적으로 결합된 세계를 의미.  - 1992년 닐 스티븐슨의 ‘스노 크래시’란 소설에서 처음 사용  - 2020년 엔비디아의 젠슨 황 최고경영자(CEO), “우리 미래는 메타버스에 있다”고 선언  - 2</span>
-                <div>한봉규 PHILIP</div>
-              </div>
 
-              <div className="mc-containers">
-                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fevents%2F2311%2F94f951a0.jpg&amp;w=800&amp;q=75" alt="3년 차 프리랜서가 말해주는 체크리스트" />
-                <div className="mc-info">3년 차 프리랜서가 말해주는 체크리스트</div>
-                <span>#경영·비즈니스 #커리어고민 #프리랜서</span>
+              {home.insight.map((insight)=>(
+              <div className="mc-containers" key={insight.id}>
+                <img src={insight.image} alt={insight.title} />            
+                <div className="ci-info">{insight.title}</div>
+                <span className="ci-subinfo">{insight.info}</span>
+                <div className='ci-writer'>
+                  <img src={insight.writeImg} alt="brunch" />
+                  <div>{insight.writeName}</div>
+                </div>
               </div>
+              ))}
 
-              <div className="mc-containers">
-                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fevents%2F2317%2Fb6768ebf.jpg&amp;w=800&amp;q=75" alt="오직 쿠팡만이 가능한 데이터 시스템과 고객 경험 개선" />            
-                <div className="mc-info">오직 쿠팡만이 가능한 데이터 시스템과 고객 경험 개선</div>
-                <span>#데이터 #UX/UI #회사생활</span>
-              </div>
-
-              <div className="mc-containers">
-                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fevents%2F2321%2F3443ba14.jpg&amp;w=800&amp;q=75" alt="회사의 미션 만들기 step 1.2.3" />            
-                <div className="mc-info">회사의 미션 만들기 step 1.2.3</div>
-                <span>#HR #회사생활 #커리어고민</span>
-              </div>
-              <div className="mc-containers">
-              <img src="https://image.wanted.co.kr/optimize?src=http%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fservice%2Fguest%2Fimage%2FA6uz6nXUgEGdfChIzr_CSEeh0OU.JPG&amp;w=500&amp;q=75" alt="[리모트워크] 페이스북의 메타버스 행보" />            
-                <div className="mc-info">[리모트워크]페이스북의 메타버스 행보</div>
-                <span>1. 메타버스 메타버스, 초월을 의미하는 메타(meta)와 전 세계, 우주 등의 의미를 담은 유니버스(universe)의 합성어. 현실공간과 가상 공간이 유기적으로 결합된 세계를 의미.  - 1992년 닐 스티븐슨의 ‘스노 크래시’란 소설에서 처음 사용  - 2020년 엔비디아의 젠슨 황 최고경영자(CEO), “우리 미래는 메타버스에 있다”고 선언  - 2</span>
-                <div>한봉규 PHILIP</div>
-              </div>
-
-              <div className="mc-containers">
-                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fevents%2F2311%2F94f951a0.jpg&amp;w=800&amp;q=75" alt="3년 차 프리랜서가 말해주는 체크리스트" />
-                <div className="mc-info">3년 차 프리랜서가 말해주는 체크리스트</div>
-                <span>#경영·비즈니스 #커리어고민 #프리랜서</span>
-              </div>
-
-              <div className="mc-containers">
-                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fevents%2F2317%2Fb6768ebf.jpg&amp;w=800&amp;q=75" alt="오직 쿠팡만이 가능한 데이터 시스템과 고객 경험 개선" />            
-                <div className="mc-info">오직 쿠팡만이 가능한 데이터 시스템과 고객 경험 개선</div>
-                <span>#데이터 #UX/UI #회사생활</span>
-              </div>
-
-              <div className="mc-containers">
-                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fevents%2F2321%2F3443ba14.jpg&amp;w=800&amp;q=75" alt="회사의 미션 만들기 step 1.2.3" />            
-                <div className="mc-info">회사의 미션 만들기 step 1.2.3</div>
-                <span>#HR #회사생활 #커리어고민</span>
-              </div>
             </div>
         </MainContainerStyle>
         </CareerInsightStyle>
@@ -241,29 +209,14 @@ export default function IndexPage() {
           </div>
 
           <div className="mc-list">
-            <div className="mc-containers">
-              <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fevents%2F2345%2F45714151.jpg&amp;w=800&amp;q=75" alt="많이 주면 안 나갈까? 리텐션을 위한 보상 설계 가이드" />            
-              <div className="mc-info">많이 주면 안 나갈까? 리텐션을 위한 보상 설계 가이드</div>
-              <span>#HR #조직문화 #경영/전략</span>
+          {home.article.map((article)=>(
+            <div className="mc-containers" key={article.id}>
+              <img src={article.image} alt={article.title} />            
+              <div className="mc-info">{article.title}</div>
+              <span>{article.info}</span>
             </div>
-
-            <div className="mc-containers">
-              <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fevents%2F2311%2F94f951a0.jpg&amp;w=800&amp;q=75" alt="3년 차 프리랜서가 말해주는 체크리스트" />
-              <div className="mc-info">3년 차 프리랜서가 말해주는 체크리스트</div>
-              <span>#경영·비즈니스 #커리어고민 #프리랜서</span>
-            </div>
-
-            <div className="mc-containers">
-              <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fevents%2F2317%2Fb6768ebf.jpg&amp;w=800&amp;q=75" alt="오직 쿠팡만이 가능한 데이터 시스템과 고객 경험 개선" />            
-              <div className="mc-info">오직 쿠팡만이 가능한 데이터 시스템과 고객 경험 개선</div>
-              <span>#데이터 #UX/UI #회사생활</span>
-            </div>
-
-            <div className="mc-containers">
-              <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fevents%2F2321%2F3443ba14.jpg&amp;w=800&amp;q=75" alt="회사의 미션 만들기 step 1.2.3" />            
-              <div className="mc-info">회사의 미션 만들기 step 1.2.3</div>
-              <span>#HR #회사생활 #커리어고민</span>
-            </div>
+          ))}
+          
           </div>
         </MainContainerStyle>
 
@@ -277,33 +230,36 @@ export default function IndexPage() {
           </div>
 
           <div className="mc-list">
+          {home.VOD.map((vod)=>(
             <div className="mc-containers">
-              <img src="https://image.wanted.co.kr/optimize?src=http%3A%2F%2Fwanted.video.kr.kollus.com%2Fkr%2Fsnapshot%2Fwanted%2F20210224%2F8%2F90123633.jpg&amp;w=800&amp;q=75" alt="Wanted Talk Engineering #1: 테스트 코드와 배포 시스템 - 서버 배포 방식" class="Thumbnail_Thumbnail__image__NlEX0 undefined" />            
-              <div className="mc-info">원티드랩 류다현</div>
-              <div className="mc-card">Wanted Talk Engineering #1: 테스트 코드와 배포 시스템 - 서버 배포 방식</div>
-              <span>(무료) 테스트 코드와 배포 시스템 : Wanted Talk Engineering #1</span>
+              <img src={vod.image} alt={vod.title} />            
+              <div className="mc-info">{vod.title}</div>
+              <div className="mc-card">{vod.info}</div>
+              <span>{vod.subinfo}</span>
             </div>
 
-            <div className="mc-containers">
-              <img src="https://image.wanted.co.kr/optimize?src=http%3A%2F%2Fwanted.video.kr.kollus.com%2Fkr%2Fsnapshot%2Fwanted%2F20210512%2F2%2F46759799.jpg&amp;w=800&amp;q=75" alt="터지는 콘텐츠는 이렇게 만듭니다 Part 2 : 독자의 마음 - 박창선" />            
-              <div className="mc-info">애프터모멘트 박창선</div>
-              <div className="mc-card">터지는 콘텐츠는 이렇게 만듭니다 Part 2 : 독자의 마음 - 박창선</div>
-              <span>터지는 콘텐츠는 이렇게 만듭니다 : Wanted How To</span>
-            </div>
 
-            <div className="mc-containers">
-              <img src="https://image.wanted.co.kr/optimize?src=http%3A%2F%2Fwanted.video.kr.kollus.com%2Fkr%2Fsnapshot%2Fwanted%2F20200819%2F04%2F97576753.jpg&amp;w=800&amp;q=75" alt="모춘&amp;대오의 퇴사 후 무자본 창업기" />            
-              <div className="mc-info">모빌스그룹 모춘, 모빌스그룹 대오</div>
-              <div className="mc-card">모춘&대오의 퇴사 후 무자본 창업기</div>
-              <span>모춘&대오의 퇴사 후 무자본 창업기 : Career Talk #5</span>
-            </div>
+            // <div className="mc-containers">
+            //   <img src="https://image.wanted.co.kr/optimize?src=http%3A%2F%2Fwanted.video.kr.kollus.com%2Fkr%2Fsnapshot%2Fwanted%2F20210512%2F2%2F46759799.jpg&amp;w=800&amp;q=75" alt="터지는 콘텐츠는 이렇게 만듭니다 Part 2 : 독자의 마음 - 박창선" />            
+            //   <div className="mc-info">애프터모멘트 박창선</div>
+            //   <div className="mc-card">터지는 콘텐츠는 이렇게 만듭니다 Part 2 : 독자의 마음 - 박창선</div>
+            //   <span>터지는 콘텐츠는 이렇게 만듭니다 : Wanted How To</span>
+            // </div>
 
-            <div className="mc-containers">
-              <img src="https://image.wanted.co.kr/optimize?src=http%3A%2F%2Fwanted.video.kr.kollus.com%2Fkr%2Fsnapshot%2Fwanted%2F20210512%2F2%2F32385576.jpg&amp;w=800&amp;q=75" alt="터지는 콘텐츠는 이렇게 만듭니다 Part 3 : 위트와 무리수레벨 조절하기 - 박창선" />            
-              <div className="mc-info">애프터모멘트 박창선</div>
-              <div className="mc-card">터지는 콘텐츠는 이렇게 만듭니다 Part 3 : 위트와 무리수레벨 조절하기 - 박창선</div>
-              <span>터지는 콘텐츠는 이렇게 만듭니다 : Wanted How To</span>
-            </div>
+            // <div className="mc-containers">
+            //   <img src="https://image.wanted.co.kr/optimize?src=http%3A%2F%2Fwanted.video.kr.kollus.com%2Fkr%2Fsnapshot%2Fwanted%2F20200819%2F04%2F97576753.jpg&amp;w=800&amp;q=75" alt="모춘&amp;대오의 퇴사 후 무자본 창업기" />            
+            //   <div className="mc-info">모빌스그룹 모춘, 모빌스그룹 대오</div>
+            //   <div className="mc-card">모춘&대오의 퇴사 후 무자본 창업기</div>
+            //   <span>모춘&대오의 퇴사 후 무자본 창업기 : Career Talk #5</span>
+            // </div>
+
+            // <div className="mc-containers">
+            //   <img src="https://image.wanted.co.kr/optimize?src=http%3A%2F%2Fwanted.video.kr.kollus.com%2Fkr%2Fsnapshot%2Fwanted%2F20210512%2F2%2F32385576.jpg&amp;w=800&amp;q=75" alt="터지는 콘텐츠는 이렇게 만듭니다 Part 3 : 위트와 무리수레벨 조절하기 - 박창선" />            
+            //   <div className="mc-info">애프터모멘트 박창선</div>
+            //   <div className="mc-card">터지는 콘텐츠는 이렇게 만듭니다 Part 3 : 위트와 무리수레벨 조절하기 - 박창선</div>
+            //   <span>터지는 콘텐츠는 이렇게 만듭니다 : Wanted How To</span>
+            // </div> 
+          ))}
           </div>
         </MainContainerStyle>
 

@@ -1,0 +1,124 @@
+{
+    "insight" : [
+        {
+            "id" : 1,
+            "image":"https://image.wanted.co.kr/optimize?src=http%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fservice%2Fuser%2FdEi4%2Fimage%2FiMf9dd-Fc-Sj3A4w3YEdMyL5q7k.png&w=500&q=75",
+            "title": "구독 지옥에 빠진 내가 네이버플러스는 못 끊는 이유",
+            "info": "나를 묶고 가둔 네이버플러스 멤버십,페르소나를 설정해서 개선점을 찾아보자   1. 이젠 포인트까지 구독해야 한다고?  네이버플러스 멤버십에 대해   네이버 쇼핑, 네이버 주문, 네이버 스마트플레이스(예약, 플레이스) 등의 서비스를 이용해봤다면 알겠지만, 네이버페이로 결제할 때는 일정 금액이 네이버페이 포인트로 적립된다. 네이버플러스 멤버십은 이러한 이커머스",
+            "writeImg" :"https://image.wanted.co.kr/optimize?src=https%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fstatic%2Ficon%2Fios%2Ficon120.png&w=60&q=90",
+            "writeName" : "July"
+        },
+        {
+            "id" : 2,
+            "image":"https://image.wanted.co.kr/optimize?src=http%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fservice%2Fuser%2F4DBT%2Fimage%2F7OXmrO-UyJqkfqQy7RaumwqzscU.jpeg&w=500&q=75",
+            "title": "시간관리를 정원관리하며 깨닫는 집적의 힘",
+            "info": "9일 전쯤에 페북에서 발견한 문구 바로 써먹는 습관에 대한 글을 쓴 일이 있다.   지금 하려는 일은 20인가 80인가 묻기 나는 거기에 더하여 두레이 템플릿으로 매일 시간 관리용으로 쓰이도록 한다. 이런 과정을 나는 ‘함수’에 비유하는데, 습관을 키우는 행동으로 볼 수 있다. (자세한 내용은 함수형 인간 참조) 그렇게 일주일 이상 직업일상에서 피드백을 받",
+            "writeImg" :"https://image.wanted.co.kr/optimize?src=https%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fstatic%2Ficon%2Fios%2Ficon120.png&w=60&q=90",
+            "writeName" : "안영회 습작"
+        },
+        {
+            "id" : 3,
+            "image" : "https://image.wanted.co.kr/optimize?src=http%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fservice%2Fuser%2F79q%2Fimage%2FEoqUrTb8zq5bfA0o5ckbhkHELB4.JPG&w=500&q=75",
+            "title": "리추얼: 내가 나에게 선물하는 시간",
+            "info": "처음에는 알지 못했다. 내가 나를 알아가는데도 시간이 필요하다는 걸. 나는 나니까 당연하게 나를 잘 알고 있는 줄 알았다. 살아지는 대로 사는 동안은 큰 생각이 없었다. 그때의 난 오토파일럿 기능처럼, 나를 자동으로 작동하게 할 때가 많았다.  그러다가 어떤 깨달음을 만난 순간들이 있었다. 그것은 자다가 찬물을 뒤집어썼을 때와 같은 강한 충격이기도 했고,",
+            "writeImg" :"https://image.wanted.co.kr/optimize?src=https%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fstatic%2Ficon%2Fios%2Ficon120.png&w=60&q=90",
+            "writeName" : "알로하융"
+        },
+        {
+            "id" : 4,
+            "image" : "https://image.wanted.co.kr/optimize?src=http%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fservice%2Fuser%2F4Oxh%2Fimage%2FkgXvNF3PAUT775yRyt9iLL7oqh4.jpg&w=500&q=75",
+            "title": "8. I사분면 투자가의 5가지 단계",
+            "info": "(이전 글)   당신은 지금 어떤 일을 하며 돈을 버는가? 그 일을 하기 위해 어떤 교육을 거쳤는가?  직업을 갖기 위해서는 해당 직업에 쓸 수 있는 지식을 배워야 한다. 그리고 우리는 그 직업을 통해 돈을 번다.  흔히들 '돈'을 벌기 위해 회사에 다닌다고들 한다. ... 그러기 위해서 지금까지 그런 교육을 받았는가?  부자가 되기 위해선 '돈'에 대해",
+            "writeImg" :"https://image.wanted.co.kr/optimize?src=https%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fstatic%2Ficon%2Fios%2Ficon120.png&w=60&q=90",
+            "writeName" : "취준생LAB"
+        },
+        {
+            "id" : 5,
+            "image" : "https://image.wanted.co.kr/optimize?src=http%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fservice%2Fuser%2F4DBT%2Fimage%2F5A3slTw-ilyNdrDvnXF1NgNoULM.png&w=500&q=75",
+            "title": "소프트웨어를 제품으로 만드는 길",
+            "info": "앞선 글을 쓰다가 발견한 Kent Beck의 기사를 그냥 넘길 수가 없었습니다. 그래서 이전 글과 같은 방식으로 정리해봅니다. 의뢰를 받아 썼던 지난 글과 달리 제목에서 드러나는 주제를 보니 내 안에 숨겨져 있던 것들을 발견할 수도 있다는 희망은 갖고 썼습니다.  소프트웨어 디자인은 인간관계에 대한 활동이다 첫 문단에서 저는 Kent Beck의 말에 완전히",
+            "writeImg" :"https://image.wanted.co.kr/optimize?src=https%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fstatic%2Ficon%2Fios%2Ficon120.png&w=60&q=90",
+            "writeName" : "안영회 습작"
+        },        
+        {
+            "id" : 6,
+            "image" : "https://image.wanted.co.kr/optimize?src=http%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fservice%2Fuser%2F1hte%2Fimage%2FHWqn2e-V-XSwU2z30ZrZbgrhxV0.png&w=500&q=75",
+            "title": "디자이너의 취미 생활",
+            "info": "프롤로그 요즘 위스키를 즐기는 취미가 생겼다. 자기 전에 한잔 정도 향과 맛을 즐긴다. 한국에서 술 마시는 것이 취미라고 한다면 아마 술꾼이나 술을 엄청 좋아하는 사람으로 볼 수 있겠지만, 위스키의 맛과 향을 천천히 음미하는 것이 취미라고 한다면 사뭇 느낌이 다르다. 나는 술을 그렇게 좋아하지 않는다. 아니, 술이 이성을 잠식한 술자리의 엔트로피를 좋아하지",
+            "writeImg" :"https://image.wanted.co.kr/optimize?src=https%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fstatic%2Ficon%2Fios%2Ficon120.png&w=60&q=90",
+            "writeName" :  "Shaun"
+        },
+        {
+            "id" : 7,
+            "image" : "https://image.wanted.co.kr/optimize?src=http%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fservice%2Fuser%2F4DBT%2Fimage%2FQJOvTqqagrLqAWH4J0-xbh6lNpg.jpeg&w=500&q=75",
+            "title": "책장으로 드러난 관심사 흐름 정렬",
+            "info": "흐트러진 책장 첫 칸을 치워야겠다는 충동에 사로잡혔습니다.  나는 실천에 앞서 목표를 세우려고 합니다. 담백해지고 싶은 욕망을 담아서 기대값(함수의 출력값)을 정하는 것이죠.   내가 주로 시간을 쓰는 지식 제목을 붙여보면, 내가 주로 시간을 쓰는 지식을 두드러지게 혹은 드러나게 하는 일입니다. 단정해 보이는 것은 저에게 중요한 가치가 아닙니다. 한달 전",
+            "writeImg" :"https://image.wanted.co.kr/optimize?src=https%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fstatic%2Ficon%2Fios%2Ficon120.png&w=60&q=90",
+            "writeName" : "안영회 습작"
+        },
+        {
+            "id" : 8,
+            "image" : "https://image.wanted.co.kr/optimize?src=http%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fservice%2Fuser%2F4Oxh%2Fimage%2FNrKzlGcFqOLFEHr3C3DEmHHeDmU.jpg&w=500&q=75",
+            "title": "6. 경제적 자유로 가는 길목",
+            "info": "(지난 글)   '자유'라는 단어의 뜻은 억압받지 않고 자신의 마음대로 행동할 수 있는 상태를 의미한다.  그러나 잘 생각해보자. 내가 마음대로 행동하기 위해서는 우선 '시간'이 필요하다.  내가 원하는 시간에 원하는 일을 할 수 있는 것, 그것이 자유이다. 바꿔 말하자면, 시간을 원하는 대로 쓸 수 있는 것이 자유이다.  부자 아빠가 로버트를 가르칠 수",
+            "writeImg" :"https://image.wanted.co.kr/optimize?src=https%3A%2F%2Ft1.daumcdn.net%2Fbrunch%2Fstatic%2Ficon%2Fios%2Ficon120.png&w=60&q=90",
+            "writeName" :  "취준생LAB"
+        }
+    ],
+    "article" : [
+        {
+            "id": 1,
+            "image":"https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fevents%2F2345%2F45714151.jpg&w=800&q=75",
+            "title" :"많이 주면 안 나갈까? 리텐션을 위한 보상 설계 가이드",
+            "info":"#HR #조직문화 #경영/전략"
+        },
+        {
+            "id" : 2,
+            "image" : "https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fevents%2F2311%2F94f951a0.jpg&w=800&q=75",
+            "title" : "3년 차 프리랜서가 말해주는 체크리스트",
+            "info" : "#경영·비즈니스 #커리어고민 #프리랜서"
+        },
+        {
+            "id" : 3,
+            "image" : "https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fevents%2F2317%2Fb6768ebf.jpg&w=800&q=75",
+            "title" : "오직 쿠팡만이 가능한 데이터 시스템과 고객 경험 개선",
+            "info" : "#데이터 #UX/UI #회사생활"
+        },
+        {
+            "id" : 4,
+            "image" : "https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fevents%2F2321%2F3443ba14.jpg&w=800&q=75",
+            "title" : "회사의 미션 만들기 step 1.2.3",
+            "info" : "#HR #회사생활 #커리어고민"
+        }
+    ],
+    "VOD" : [
+        {
+            "id": 1,
+            "image":"https://image.wanted.co.kr/optimize?src=http%3A%2F%2Fwanted.video.kr.kollus.com%2Fkr%2Fsnapshot%2Fwanted%2F20210224%2F8%2F90123633.jpg&w=800&q=75",
+            "title" :"원티드랩 류다현",
+            "info":"Wanted Talk Engineering #1: 테스트 코드와 배포 시스템 - 서버 배포 방식",
+            "subinfo": "(무료) 테스트 코드와 배포 시스템 : Wanted Talk Engineering #1"
+        },
+        {
+            "id" : 2,
+            "image" : "https://image.wanted.co.kr/optimize?src=http%3A%2F%2Fwanted.video.kr.kollus.com%2Fkr%2Fsnapshot%2Fwanted%2F20210512%2F2%2F46759799.jpg&w=800&q=75",
+            "title" : "애프터모멘트 박창선",
+            "info" : "터지는 콘텐츠는 이렇게 만듭니다 Part 2 : 독자의 마음 - 박창선",
+            "subinfo" : "터지는 콘텐츠는 이렇게 만듭니다 : Wanted How To"
+        },
+        {
+            "id" : 3,
+            "image" : "https://image.wanted.co.kr/optimize?src=http%3A%2F%2Fwanted.video.kr.kollus.com%2Fkr%2Fsnapshot%2Fwanted%2F20200819%2F04%2F97576753.jpg&w=800&q=75",
+            "title" : "모빌스그룹 모춘, 모빌스그룹 대오",
+            "info" : "모춘&대오의 퇴사 후 무자본 창업기",
+            "subinfo" : "모춘&대오의 퇴사 후 무자본 창업기 : Career Talk #5"
+        },
+        {
+            "id" : 4,
+            "image" : "https://image.wanted.co.kr/optimize?src=http%3A%2F%2Fwanted.video.kr.kollus.com%2Fkr%2Fsnapshot%2Fwanted%2F20210512%2F2%2F32385576.jpg&w=800&q=75",
+            "title" : "애프터모멘트 박창선",
+            "info" : "터지는 콘텐츠는 이렇게 만듭니다 Part 3 : 위트와 무리수레벨 조절하기 - 박창선",
+            "subinfo" : "터지는 콘텐츠는 이렇게 만듭니다 : Wanted How To"
+        }
+    ]
+}

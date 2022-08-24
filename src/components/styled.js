@@ -10,26 +10,29 @@ export const CareerInsightStyle = styled.div`
     display: flex;
 
     .swiper-wrapper{
-      margin: 30px 0;
+      margin-top: 30px;
+      height: auto;
     }
     .swiper-button-prev, .swiper-button-next{
       background-color: white;
       background-size: 17px 17px;
       background-repeat: no-repeat;
       background-position: center;
-      width: 28px;
-      height: 28px;
-      border: 50%;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      border: 0.5px solid rgb(0 0 0 / 0.3);  
+      border: 1px solid #aaa;
+      box-shadow: 0px 0px 20px 16px white;
     }
-
+    .swiper-button-disabled{
+      display: none;
+    }
     .swiper-button-next {
-      background-image: url("../imgs/arrownext.JPG");
+      background-image: url(https://icons-for-free.com/download-icon-arrows+chevron+direction+forward+next+right+icon-1320085938847587870_0.svg);
     }
     
     .swiper-button-prev {
-      background-image: url("../imgs/arrowprev.JPG");
+      background-image: url(https://static.thenounproject.com/png/1407190-200.png);
     }
     
     .swiper-button-next::after,
@@ -137,12 +140,24 @@ export const LineBannerStyle = styled.div`
     height: 15px;
     fill: white;
   }
+
+  #searchSvg{
+    width: 28px;
+    height: 28px;
+    margin-right: 6px;
+  }
 `;
 
 export const MainContainerStyle = styled.div`
-  padding: 60px 0;
+  padding-bottom: 60px;
   width: ${(props) => props.widthtotal || 1060 }px;
   margin: auto;
+  padding-top: ${(props) => props.paddingTop || 60 }px;
+
+  .ci-info{
+    text-align: left;
+    padding: 17px 0 8px 0;
+  }
 
   .mc-main-title{
     text-align: center;
@@ -187,6 +202,7 @@ export const MainContainerStyle = styled.div`
       width: 100%;
       height: ${(props) => props.height}px;
       object-fit: cover;
+      object-position: top;
     }
 
     span {
@@ -204,6 +220,7 @@ export const MainContainerStyle = styled.div`
 
   .mc-list{
     display: flex;
+    row-gap: 50px;
   }
 
   .mc-info{
@@ -218,6 +235,36 @@ export const MainContainerStyle = styled.div`
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  .mc-containers .ci-subinfo{
+    line-height:1.5;
+    text-align: left;
+    font-size: 13px;
+    margin-top: 8px;
+    color:#aaa;
+
+    white-space:normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .ci-writer{
+    font-size: 13px;
+    color: #AAAAAA;
+    display: flex;
+    align-items: center;
+    column-gap: 14px;
+    margin-top: 12px;
+    
+    img{
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid #ececec;
+    }
+  }
 `;
 
 export const SubscribeStyle = styled.div`
@@ -229,7 +276,7 @@ export const SubscribeStyle = styled.div`
     margin-top: 10px;
   }
 
-  .subscribe-container button{
+  .subscribe-contain60pxmaincomer button{
       color: #fff;
       background-color: #3366ff;
       width: 260px;
@@ -258,6 +305,7 @@ export const SubscribeStyle = styled.div`
       }
     }
   }
+
 `;
 
 export const RecruitmentStyle = styled.div`
@@ -314,7 +362,12 @@ export const ModalOverlayStyle = styled.div`
   justify-content: center;
   background-color: rgba(0,0,0,.5);
 
+
+  .modal-wrapper::-webkit-scrollbar{
+    display:none;
+  }
   .modal-wrapper {
+    -ms-overflow-style: none;
     background-color:white;
     width: 400px;
     height: calc(100vh - 150px);
@@ -349,11 +402,21 @@ export const ModalOverlayStyle = styled.div`
     }
 
     .modal-items{ 
-      label{
-        font-size: 14px;
+      padding-bottom: ${(props) => props.paddingBottom}px;
+      
+      .error-message{
+        color: #fe415c;
+        font-size: 12px;
+        margin-top: 6px;
       }
 
-      input{
+      label{
+        font-size: 14px;
+        color: #757676;
+      }
+
+      input,
+      select{
         margin-top: 11px;
         height: 50px;
         width: 100%;
@@ -362,6 +425,7 @@ export const ModalOverlayStyle = styled.div`
         border-radius: 5px;
         border: 1px solid #e1e2e3;
       }
+      
     }
 
     #emailBtn{
@@ -400,4 +464,75 @@ export const ModalOverlayStyle = styled.div`
     }
   }
 
+  .signup-title{
+    padding: 16px 24px;
+    text-align: center;
+  }
+
+  #pwTxt{
+    font-size: 12px;
+    color: #767676;
+    margin-top: 6px;
+  }
+
+  .number-certif{
+    display: flex;
+    justify-content: space-between;
+
+    button{
+      width: 117px;
+      padding: 16px 15px 14px;
+      border: none;
+      border-radius: 5px;
+      background-color: #f2f4f7;
+      color: #ccc;
+      height: 50px;
+      margin-top: 11px;
+    }
+
+    input{
+      width: 233px !important;
+    }
+  }
+
+  .agree-items{
+    font-size: 15px;
+    height: auto;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #ececec;
+    margin-bottom: 15px;
+
+    input{
+      margin-right: 10px;
+    }
+  }
+
+  .agree-subitems{
+    font-size: 15px;
+    color:#939393;
+    margin-bottom: 7px;
+
+    input{
+      margin-right: 10px;
+    }
+  }
+
+  #signupBtn{
+    width: 100%;
+    height: 54px;
+    border-radius: 27px;
+    border: none;
+    font-family: 'Pretendard';
+    font-size: 16px;
+    margin-top: 14px;
+    background-color: #f2f4f7;
+    color: #cacaca;
+
+    position: sticky;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    z-index: 3;
+  }
 `
+
