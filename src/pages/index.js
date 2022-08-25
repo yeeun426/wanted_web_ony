@@ -6,6 +6,7 @@ import Header from '../components/header';
 import SwiperComponent from '../components/swiper';
 import Footer from '../components/footer';
 import LoginModal from './login/login';
+import Search from '../components/search';
 // dummydata 
 import home from '../data/home.json'
 //swiper
@@ -18,12 +19,15 @@ SwiperCore.use([Navigation, Autoplay])
 
 export default function IndexPage() {
   const [modal, setModal] = useState(false);
+  const [search, setSearch] = useState(false);
+
   console.log(modal);
 
   return (
     <div>
       <div>
-        <Header test={setModal} page="index" />
+        <Header test={setModal} search={setSearch} page="index" />
+        {search && <Search/>}
         <SwiperComponent />
         
         <CareerInsightStyle>

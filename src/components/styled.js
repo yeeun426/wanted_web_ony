@@ -767,3 +767,84 @@ export const JobsFeedStyle = styled.div`
     border-bottom-right-radius: 38.5px;
   }
 `;
+
+export const SearchStyle = styled.div`
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,.5);
+
+  .search-wrapper{
+    background-color: white;
+    padding-top: 30px;
+  }
+
+  .search-container{
+    max-width: 1060px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  input{
+    box-sizing: border-box;
+    height: 50px;
+    width: 1060px;
+    padding: 0 36px 0 60px;
+    border: 1px solid #f2f4f7;
+    border-radius: 25px;
+    font-size: 16px;
+    color: #767676;
+    background-color: #f2f4f7;
+    font-family: pretendard;
+  }
+
+  .search-wrapper svg{
+    position: absolute;
+    top: 16px;
+    left: 24px;
+  }
+  
+  .tag-home{
+    display: flex;
+    align-items: center;
+    color: #767676;
+  }
+
+  .tag-home svg{
+    position: initial;
+  }
+
+  .search-sub{
+    font-size: 14px;
+    display: flex;
+    padding-top: 50px;
+    justify-content: space-between;
+  }
+
+  .search-tag{
+    padding: 20px 0 50px;
+  }
+
+  .search-tag button{
+    height: 50px;
+    font-size: 15px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 0 26px;
+    background-color: #f3f5f8;
+    border-radius: 25px;
+    border: none;
+    font-family: pretendard;
+  }
+
+  .search-wrapper input:focus{ 
+    outline:none;
+    border: 1px solid #36f;
+    color: #333;
+    background-color: #fff;
+  }
+`
