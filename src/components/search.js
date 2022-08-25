@@ -1,4 +1,5 @@
 import {SearchStyle} from '../components/styled'
+import { Link } from 'react-router-dom';
 
 export default function search() {
     return(
@@ -20,11 +21,13 @@ export default function search() {
                 </div>
 
                     <div className="search-tag">
-                        <button>#퇴사율5%이하</button>
-                        <button>#연봉상위2~5%</button>
-                        <button>#원격근무</button>
-                        <button>#헬스장</button>
-                        <button>#연말보너스</button>   
+                    <Link to ="/tagsearch">
+                        <button style={{backgroundColor: '#f0f8f8'}}>#퇴사율5%이하</button>
+                        <button style={{backgroundColor: '#eeedf4'}}>#연봉상위2~5%</button>
+                        <button style={{backgroundColor: '#e8edf3'}}>#원격근무</button>
+                        <button style={{backgroundColor: '#e9f4fb'}}>#헬스장</button>
+                        <button style={{backgroundColor: '#effbf3'}}>#연말보너스</button>   
+                    </Link>
                     </div>  
                 </div> 
             </div>      

@@ -631,7 +631,8 @@ export const ModalOverlayStyle = styled.div`
     right: 0;
     z-index: 3;
   }
-`
+`;
+
 
 export const JobsFeedStyle = styled.div`
 
@@ -847,4 +848,115 @@ export const SearchStyle = styled.div`
     color: #333;
     background-color: #fff;
   }
-`
+`;
+
+
+export const TagSearchStyle = styled.div`
+  .tag-container{
+    padding-top: 50px;
+  }
+
+  .search-tag{
+    font-size:24px;
+    padding: 30px 0;
+    text-align: center;
+  }
+
+  .tag-total{
+    width: 200px;
+    position: absolute;
+    top: 84px;
+    right: calc((100% - 1060px)/2);
+    font-size: 14px;
+    font-weight: 600;
+    color: #268bf7;
+    text-align: right;
+  }
+
+  .tag-button{
+    width: 1060px;
+    margin: auto;
+    text-align: center;
+    margin-bottom:24px;
+  }
+
+  .tag-button span{
+    margin-right: 6px;
+    font-size: 14px;
+  }
+
+  .tag-button button{
+    height: 46px;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 0 26px;
+    background-color: #f3f5f8;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+
+  .ci-name img{
+    width: 50px;
+    height: 50px;
+    border: 1px solid #f1f1f2;
+  }
+
+  .ci-name{
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .ci-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 23px;
+  }
+
+  .ci-info button{
+    height: 30px;
+    border-radius: 25px;
+    color: #3366ff;
+    padding: 7px 20px 8px;
+    font-size:14px;
+    border: 1px solid #e1e2e3;
+  }
+
+  .company-items{
+    position: relative;
+    display: block;
+    float: left;
+    width: calc(50% - 60px);
+    background-color: white;
+    border-radius: 3px;
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 20px 20px 13px;
+  }
+
+  .company-list{
+    width: 1080px;
+    margin: auto;
+  }
+
+  .company-wrapper{
+    display: flex;
+    background-color: #f2f4f7;
+    padding-bottom: 80px;
+  }
+
+  .tag-list{
+    text-overflow: ellipsis;
+    white-space : nowrap;
+    overflow : hidden;
+  }
+
+  .tag-list span{
+    font-size: 14px;
+    color: #999999;
+    margin-right: 12px;
+  }
+`;
