@@ -5,6 +5,10 @@ export const CareerInsightStyle = styled.div`
   max-width: 1060px;
   text-align: center;
   margin: auto;
+  
+  .swiper-slide{
+    width: auto !important;
+  }
 
   .ci-swiper {
     display: flex;
@@ -50,13 +54,22 @@ export const CareerInsightStyle = styled.div`
   }
 
   .mySwiper button{
+    border-radius: 5px;
     padding: 0 29px;
     height: 50px;
     font-size: 15px;
     border: 1px solid #f2f4f7;
     background-color: #f2f4f7;
-    font-family: "Pretendard";
+    font-family: Pretendard-Thin;
     white-space: nowrap;
+  }
+
+  .mySwiper button:hover {
+    font-family: Pretendard;
+    background-color: #fff;
+    border: 1px solid #36f;
+    color: #36f;
+    outline: none;
   }
 
   .ci-etc button {
@@ -800,7 +813,7 @@ export const SearchStyle = styled.div`
     font-size: 16px;
     color: #767676;
     background-color: #f2f4f7;
-    font-family: pretendard;
+    font-family: Pretendard-Thin;
   }
 
   .search-wrapper svg{
@@ -810,6 +823,7 @@ export const SearchStyle = styled.div`
   }
   
   .tag-home{
+    font-family:Pretendard-Thin;
     display: flex;
     align-items: center;
     color: #767676;
@@ -839,7 +853,7 @@ export const SearchStyle = styled.div`
     background-color: #f3f5f8;
     border-radius: 25px;
     border: none;
-    font-family: pretendard;
+    font-family: Pretendard-Thin;
   }
 
   .search-wrapper input:focus{ 
@@ -848,6 +862,11 @@ export const SearchStyle = styled.div`
     color: #333;
     background-color: #fff;
   }
+
+  .search-tag button:hover{
+    background-color: #0000000D !important;
+  }
+  
 `;
 
 
@@ -894,6 +913,11 @@ export const TagSearchStyle = styled.div`
     background-color: #f3f5f8;
     border-radius: 25px;
     cursor: pointer;
+    font-family:Pretendard-Thin;
+  }
+
+  .tag-button button:hover {
+    background-color: #e8e8e8;
   }
 
   .ci-name img{
@@ -958,5 +982,6 @@ export const TagSearchStyle = styled.div`
     font-size: 14px;
     color: #999999;
     margin-right: 12px;
+    font-family: Pretendard-Thin;
   }
 `;

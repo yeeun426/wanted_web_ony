@@ -1,7 +1,17 @@
 import {SearchStyle} from '../components/styled'
 import { Link } from 'react-router-dom';
+//recoil
+import {useRecoilState} from "recoil";
+import {tagRecoilState} from '../atoms/User'
 
-export default function search() {
+export default function Search() {
+    const [tag, setTag] = useRecoilState(tagRecoilState);
+
+    const onClickTag = (e) => {
+        setTag(document.activeElement.id);
+        console.log(tag)
+    }
+
     return(
         <SearchStyle>
             <div className="search-wrapper">
@@ -22,11 +32,11 @@ export default function search() {
 
                     <div className="search-tag">
                     <Link to ="/tagsearch">
-                        <button style={{backgroundColor: '#f0f8f8'}}>#퇴사율5%이하</button>
-                        <button style={{backgroundColor: '#eeedf4'}}>#연봉상위2~5%</button>
-                        <button style={{backgroundColor: '#e8edf3'}}>#원격근무</button>
-                        <button style={{backgroundColor: '#e9f4fb'}}>#헬스장</button>
-                        <button style={{backgroundColor: '#effbf3'}}>#연말보너스</button>   
+                        <button id="#퇴사율5%이하" onClick={onClickTag} style={{backgroundColor: '#f0f8f8'}}>#퇴사율5%이하</button>
+                        <button id="#연봉상위2~5%" onClick={onClickTag} style={{backgroundColor: '#eeedf4'}}>#연봉상위2~5%</button>
+                        <button id="#원격근무" onClick={onClickTag} style={{backgroundColor: '#e8edf3'}}>#원격근무</button>
+                        <button id="#헬스장" onClick={onClickTag} style={{backgroundColor: '#e9f4fb'}}>#헬스장</button>
+                        <button id="#연말보너스" onClick={onClickTag} style={{backgroundColor: '#effbf3'}}>#연말보너스</button>   
                     </Link>
                     </div>  
                 </div> 

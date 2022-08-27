@@ -9,6 +9,7 @@ import LoginModal from './login/login';
 import Search from '../components/search';
 // dummydata 
 import home from '../data/home.json'
+
 //swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Autoplay } from "swiper";
@@ -17,17 +18,16 @@ import "swiper/css/navigation";
 
 SwiperCore.use([Navigation, Autoplay])	
 
+
 export default function IndexPage() {
   const [modal, setModal] = useState(false);
-  const [search, setSearch] = useState(false);
 
   console.log(modal);
 
   return (
     <div>
       <div>
-        <Header test={setModal} search={setSearch} page="index" />
-        {search && <Search/>}
+        <Header test={setModal} page="index" />
         <SwiperComponent swiperCategory = "home"/>
         
         <CareerInsightStyle>
@@ -39,7 +39,7 @@ export default function IndexPage() {
           <div className='ci-swiper'>
             <Swiper
               slidesPerView={7.5}
-              spaceBetween={30}
+              spaceBetween={15}
               slidesPerGroup={2}
               navigation={true}
               modules={[Navigation]}
@@ -225,7 +225,7 @@ export default function IndexPage() {
             <div className="mc-containers" key={article.id}>
               <img src={article.image} alt={article.title} />            
               <div className="mc-info">{article.title}</div>
-              <span>{article.info}</span>
+              <span style={{color:"black", fontFamily:"Pretendard-Thin"}}>{article.info}</span>
             </div>
             </SwiperSlide>
           ))}

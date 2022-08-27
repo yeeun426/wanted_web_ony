@@ -1,15 +1,22 @@
+import React,{useState} from 'react'
+// 공통컴포넌트
 import Header from '../../components/header';
-import styled from 'styled-components';
 import SwiperComponent from '../../components/swiper';
 import Footer from '../../components/footer';
+import LoginModal from '../login/login';
+import Search from '../../components/search';
 
 import { MainContainerStyle, LineBannerStyle, JobsFeedStyle } from '../../components/styled';
 
 function JobsFeed() {
+    const [modal, setModal] = useState(false);
+    const [search, setSearch] = useState(false);
 
     return(
         <JobsFeedStyle>
-            <Header activeMenu="jobsfeed" />
+            <Header test={setModal} search={setSearch} activeMenu="jobsfeed" />
+            {search && <Search/>}
+
             <SwiperComponent swiperCategory = "jobsfeed"/>
 
             <LineBannerStyle marginTop={60} marginBottom={60}>
@@ -256,7 +263,8 @@ function JobsFeed() {
         </MainContainerStyle>
 
         <Footer />
-        
+        {modal ? <LoginModal test={setModal} /> : null}
+
         </JobsFeedStyle>
     )
 }

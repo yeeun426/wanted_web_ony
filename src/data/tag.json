@@ -1,0 +1,122 @@
+{
+    "tagSearch" : [
+        {
+            "id" : 1 ,
+            "title": "스케인글로브(skeinglobe)",
+            "image": "https://static.wanted.co.kr/images/wdes/851_5_logo_globe.jpg",
+            "tag1": "#건강검진",
+            "tag2": "#안마의자",
+            "tag3" : "#간식",
+            "tag4" : "#음료",
+            "tag5" : "#리프레시휴가",
+            "tag6" : "설립10년이상",
+            "tag7" : "50명이하"
+        },
+        {
+            "id" : 2 ,
+            "title": "테일러블(Tailorable)",
+            "image": "https://static.wanted.co.kr/images/wdes/661_5_logo_tb.jpg",
+            "tag1": "#연봉상위11~20%",
+            "tag2": "#설립4~9년",
+            "tag3" : "#50명이하",
+            "tag4" : "#퇴사율5%이하",
+            "tag5" : "#제조"
+        },
+        {
+            "id" : 3 ,
+            "title": "코쿤게임즈(Cocoon Games)",
+            "image": "https://static.wanted.co.kr/images/wdes/598_5_logo_cocoon.jpg",
+            "tag1": "#생일선물",
+            "tag2": "#주차",
+            "tag3" : "#유연근무",
+            "tag4" : "#음료",
+            "tag5" : "#설립4~9년",
+            "tag6" : "퇴사율5%이하",
+            "tag7" : "50명이하"
+        },
+        {
+            "id" : 4 ,
+            "title": "스포카",
+            "image": "https://static.wanted.co.kr/images/wdes/526_5_logo_spoqa.jpg",
+            "tag1": "#연봉상위11~20%",
+            "tag2": "#건강검진",
+            "tag3" : "#생일선물",
+            "tag4" : "#간식",
+            "tag5" : "#커피",
+            "tag6" : "#음료",
+            "tag7" : "#식비"
+        },
+        {
+            "id" : 5 ,
+            "title": "더제이(theJ)",
+            "image": "https://static.wanted.co.kr/images/wdes/769_5_logo_j.jpg",
+            "tag1": "#도서구매비",
+            "tag2": "#자기계발",
+            "tag3" : "#동호회",
+            "tag4" : "#간식",
+            "tag5" : "#커피",
+            "tag6" : "#음료",
+            "tag7" : "#시리얼"
+        },        
+        {
+            "id" : 6 ,
+            "title": "앤드코퍼레이션",
+            "image": "https://static.wanted.co.kr/images/wdes/623_5_logo_and.jpg",
+            "tag1": "#자기계발",
+            "tag2": "#운동비",
+            "tag3" : "#간식",
+            "tag4" : "#스타트업",
+            "tag5" : "#설립4~9년",
+            "tag6" : "#50명이하",
+            "tag7" : "#퇴사율5%이하"
+        },
+        {
+            "id" : 7 ,
+            "title": "다이닝코드(Diningcode)",
+            "image": "https://static.wanted.co.kr/images/wdes/554_5_logo_d.jpg",
+            "tag1": "#간식",
+            "tag2": "#음료",
+            "tag3" : "#설립4~9년",
+            "tag4" : "#50명이하",
+            "tag5" : "#퇴사율5%이하",
+            "tag6" : "연봉업계평균이상"
+        },
+        {
+            "id" : 8 ,
+            "title": "버즈니(Buzzni)",
+            "image": "https://static.wanted.co.kr/images/wdes/451_5_logo_buzz.png",
+            "tag1": "#스터디지원",
+            "tag2": "#자기계발",
+            "tag3" : "#건강검진",
+            "tag4" : "#원격근무",
+            "tag5" : "#안마의자",
+            "tag6" : "#간식",
+            "tag7" : "#과일"
+        },
+        {
+            "id" : 9 ,
+            "title": "스터디맥스",
+            "image": "https://static.wanted.co.kr/images/wdes/325_5_logo_max.jpg",
+            "tag1": "#중식제공",
+            "tag2": "#상여금",
+            "tag3" : "#설립10년이상",
+            "tag4" : "#50명이하",
+            "tag5" : "#퇴사율5%이하",
+            "tag6" : "설립10년이상",
+            "tag7" : "50명이하"
+        },
+        {
+            "id" : 10 ,
+            "title": "쿠팡",
+            "image": "https://static.wanted.co.kr/images/wdes/256_5_logo_coupang.png",
+            "tag1": "#재택근무",
+            "tag2": "#동호회",
+            "tag3" : "#건강검진",
+            "tag4" : "#음료",
+            "tag5" : "#상여금",
+            "tag6" : "#유연근무",
+            "tag7" : "#설립4~9년"
+        }
+    ]
+
+}
