@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import icon from '../imgs/icon.JPG';
@@ -6,7 +6,11 @@ import icon from '../imgs/icon.JPG';
 export default function Header(props) {
   const {test} = props;
   const {search} = props;
-  
+   
+  const [activeMenu, setactiveMenu] = useState(props);
+
+  console.log('현재 활성화된 메뉴 : ', activeMenu);
+
   return (
     <HeaderWrapper>
       <HeaderContainer>
@@ -21,15 +25,15 @@ export default function Header(props) {
         </HeaderItem>
 
         <HeaderItem>
-          <Link to = "/jobsfeed">
+          <Link to = "/jobsfeed" className={activeMenu.activeMenu === 'jobsfeed'? "focused" : "link"}>
             <button className="menuList">채용</button>
           </Link>
-          <div className="menuList">이벤트</div>
-          <div className="menuList">직군별 연봉</div>
-          <div className="menuList">이력서</div>
-          <div className="menuList">커뮤니티</div>
-          <div className="menuList">프리랜서</div>
-          <div className="menuList">AI 합격예측</div>
+          <button className="menuList">이벤트</button>
+          <button className="menuList">직군별 연봉</button>
+          <button className="menuList">이력서</button>
+          <button className="menuList">커뮤니티</button>
+          <button className="menuList">프리랜서</button>
+          <button className="menuList">AI 합격예측</button>
         </HeaderItem>
 
         <HeaderItem>
@@ -75,12 +79,23 @@ const HeaderItem = styled.div`
   display: flex;
   align-items: center;
 
-  .menuList {
-    font-size: 14px;
-    padding: 15px;
-    font-weight: 500;
+  .focused{
+    height: 100%;
+    box-shadow: inset 0 -2px #258bf7;
   }
 
+  .menuList {
+    font-size: 14px;
+    padding: 17px 15px;
+    font-weight: 500;
+    height: 100%;
+  }
+
+  .menuList:hover {
+    box-shadow: inset 0 -2px #ddd;    
+    height: 100%;
+  }
+  
   svg{
     padding: 3px 6px 0;
   }

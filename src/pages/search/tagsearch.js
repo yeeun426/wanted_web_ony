@@ -5,7 +5,7 @@ import {TagSearchStyle} from '../../components/styled'
 export default function tagsearch() {
     return(
     <TagSearchStyle>
-        <Header />
+        <Header activeMenu="tagsearch"/>
         <div className="tag-container">
             <div className="search-tag">#맥주</div>
             <button className="tag-total">전체보기</button>

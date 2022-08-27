@@ -28,7 +28,7 @@ export default function IndexPage() {
       <div>
         <Header test={setModal} search={setSearch} page="index" />
         {search && <Search/>}
-        <SwiperComponent />
+        <SwiperComponent swiperCategory = "home"/>
         
         <CareerInsightStyle>
           <div className="ci-title">
