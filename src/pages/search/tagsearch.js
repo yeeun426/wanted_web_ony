@@ -6,6 +6,8 @@ import {tagRecoilState} from '../../atoms/User'
 import { useRecoilValue, useRecoilState } from 'recoil';
 // dummydata 
 import tagData from '../../data/tag.json'
+// Link
+import { Link } from 'react-router-dom';
 
 export default function Tagsearch() {
     const [taginfo, setTaginfo] = useRecoilState(tagRecoilState);
@@ -37,6 +39,7 @@ export default function Tagsearch() {
         <div className="company-wrapper">
             <div className="company-list">
             {tagData.tagSearch.map((tag)=>(
+                <Link to = '/company'>
                 <div className="company-items">
                     <div className="ci-info">
                         <div className="ci-name">
@@ -56,6 +59,7 @@ export default function Tagsearch() {
                         <span>{tag.tag7}</span>
                     </div>
                 </div>
+                </Link>
             ))}
             </div>
         </div>

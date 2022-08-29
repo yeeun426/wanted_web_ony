@@ -931,6 +931,7 @@ export const TagSearchStyle = styled.div`
     font-size: 18px;
     align-items: center;
     gap: 20px;
+    color: black;
   }
   
   .ci-info{
@@ -982,6 +983,158 @@ export const TagSearchStyle = styled.div`
     font-size: 14px;
     color: #999999;
     margin-right: 12px;
+    font-family: Pretendard-Thin;
+  }
+`;
+
+export const CompanyDetailStyle = styled.div`
+  
+  .header-inner-wrapper {
+    position: relative;
+    padding-top: 51px;
+    height: 90px;
+    width: 100%;
+    border-bottom: 1px solid #e1e2e3;
+    background-color: #fff;
+
+    img{
+      width: 50px;
+      height: 50px;
+      border: 1px solid #f1f1f2;
+    }
+  }
+
+  .hiw-name{
+    display: flex;
+    font-size: 26px;
+    align-items: center;    
+    gap: 15px;
+  }
+
+  .hiw-container{
+    width: 1060px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .company-inner-wrapper{
+    width: 90%;
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 40px 0;
+  }
+
+  .company-right-wrapper{
+    float: right;
+    width: calc(30% - 10px);
+    margin-left: 20px;
+    margin-right: -10px;
+  }
+
+  .company-left-wrapper{
+    float: left;
+    width: calc(70% - 20px);
+    min-height: 500px;
+    margin-right: 20px;
+  }
+
+  h3{
+    font-size: 22px;
+    line-height: 1;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  .jp-items{
+    display: block;
+    position: relative;
+    width: calc(50% - 20px);
+    min-height: 108px;
+    margin: 0 10px 20px;
+    padding: 16px 20px 19px;
+    border-radius: 3px;
+    border: 1px solid #e1e2e3;
+    box-sizing: border-box;
+
+    p{
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1;
+      color: #666;
+      margin-top: 15px;
+    }
+
+    h5{
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1;
+      color: #86939e;
+      margin-top: 3px;
+    }
+  }
+
+  .jp-title{
+    width: calc(100% - 40px);
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #333;
+  }
+
+  .jp-list{
+    display: flex;
+    margin: 0 -10px;
+    flex-wrap: wrap;
+  }
+
+  .jobs-position-container{
+    margin-bottom: 80px;
+
+    button{
+      border: 1px solid #855af0;
+      color: #855af0;
+
+      border-radius: 2px;
+      font-size: 10px;
+      height: 19px;
+      padding: 0 5px;
+      margin-left: 10px;
+    }
+
+    .jp-more-btn{
+      width: 100%;
+      padding: 16px;
+      border-radius: 3px;
+      border: 1px solid #e1e2e3;
+      font-size: 16px;
+      color: #999;
+      height: fit-content;
+      margin: 0;
+      font-family: Pretendard-Thin;
+    }
+  }
+
+  .icc-details{
+    font-size: 16px;
+    line-height: 27px;
+    width: 100%;
+    max-height: 81px;
+    overflow: hidden;
+    white-space: pre-line;
+    font-family: Pretendard-Thin;
+  }
+
+  .intro-company-container button{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+    color: #999;
+    padding: 10px 0;
     font-family: Pretendard-Thin;
   }
 `;

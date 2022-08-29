@@ -17,7 +17,11 @@ function SwiperComponent(props) {
     useEffect(() => {
     },[swiperCategory]);
 
+    console.log(swiperData);
     console.log(swiperCategory);
+    console.log(swiperData.home);
+    console.log(swiperData.swiperCategory);
+
 
     return(
         <SwiperWrapper>
@@ -34,8 +38,9 @@ function SwiperComponent(props) {
                 modules={[Autoplay, Navigation]}
                 className="mySwiper"
             >
-            {swiperData.home.map((swiper)=>
-                <SwiperSlide>
+            {swiperData.swiperCategory && swiperData.swiperCategory.length > 0 && 
+                swiperData.swiperCategory.map((swiper) =>
+                <SwiperSlide key={swiper.id}>
                     <div>
                         <img src={swiper.image} alt={swiper.title} />
                         <div className="slideDetails">
