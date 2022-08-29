@@ -1020,6 +1020,7 @@ export const CompanyDetailStyle = styled.div`
   }
 
   .company-inner-wrapper{
+    display: flex;
     width: 90%;
     max-width: 1060px;
     margin: 0 auto;
@@ -1027,17 +1028,16 @@ export const CompanyDetailStyle = styled.div`
   }
 
   .company-right-wrapper{
-    float: right;
     width: calc(30% - 10px);
     margin-left: 20px;
     margin-right: -10px;
   }
 
   .company-left-wrapper{
-    float: left;
     width: calc(70% - 20px);
     min-height: 500px;
     margin-right: 20px;
+    padding-bottom: 40px;
   }
 
   h3{
@@ -1064,6 +1064,7 @@ export const CompanyDetailStyle = styled.div`
       line-height: 1;
       color: #666;
       margin-top: 15px;
+      margin-bottom: 0;
     }
 
     h5{
@@ -1136,5 +1137,202 @@ export const CompanyDetailStyle = styled.div`
     color: #999;
     padding: 10px 0;
     font-family: Pretendard-Thin;
+  }
+
+  .intro-company-container{
+    margin-bottom: 70px;
+  }
+
+  .company-right-wrapper button{
+    font-size: 14px;
+    line-height: 1;
+    color: #333;
+    border-radius: 20px;
+    margin-right: 6px;
+    margin-bottom: 10px;
+    background-color: #f3f5f8;
+    padding: 12px 16px;
+    font-family: Pretendard-Thin;
+  }
+
+  #crw-more-btn{
+    color: #999;
+    border: 1px dashed #ccc;
+    padding: 12px 16px;
+    background-color: white;
+  }
+
+  .jp-items button{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1;
+    color: #86939e;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #e1e2e3;
+    border-radius: 17px;
+  }
+
+  .icc-image-list {
+    position: relative;
+    margin-left: -10px;
+    margin-bottom: 20px;
+    height: 124px;
+    overflow: hidden;
+
+    button{
+      float: left;
+      width: calc(25% - 10px);
+      height: 100%;
+      margin-left: 10px;
+      padding: 0px;
+    }
+
+    img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .si-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3{
+      margin-bottom: 0;
+    }
+  }
+
+  .si-title h4{
+    font-size: 13px;
+    line-height: 1;
+    color: #b5b5b5;
+  }
+
+  .salary-info{
+    position: relative;
+    border-radius: 3px;
+    background-color: #f4f5f7;
+    height: 72px;
+  }
+
+  .si-new{
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-50%);
+    display: inline-block;
+    width: calc(100% - 200px);
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1;
+    color: #999;
+  }
+  
+  .si-new-info{
+    display: inline-block;
+    font-size: 20px;
+    line-height: 24px;
+    height: 24px;
+
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+  }
+
+  .si-info{
+    position: relative;
+    float: left;
+    height: 72px;
+    width: 50%;
+    text-align: center;
+  }
+
+  .salary-items{
+    margin-bottom: 80px;
+  }
+
+  .si-border{
+    position: absolute;
+    height: 38px;
+    width: 1px;
+    right: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #e1e2e3;
+  }
+
+  .size-info{
+    padding: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #f4f5f7;
+  }
+
+  .si-total{
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 24px;
+    vertical-align: bottom;
+    color: #999;
+    margin-right: 25px;
+  }
+
+  .si-total-info{
+    display: inline-block;
+    font-size: 20px;
+    line-height: 24px;
+    height: 24px;
+  }
+
+  .cni-items{
+    position: relative;
+    float: left;
+    width: calc(50% - 20px);
+    padding: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #e1e2e3;
+    border-radius: 3px;
+    box-sizing: border-box;
+
+    h4{
+      margin:0;
+      font-size: 16px;
+      line-height: 22px;
+      height: 44px;
+      margin-bottom: 16px;
+    }
+
+    p{
+      margin:0;
+      width: 100%;
+      font-size: 14px;
+      font-weight: 400;
+      color: #666;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      font-family: Pretendard-Thin;
+    }
+  }
+
+  .company-news-list{
+    margin-left: -20px;
+  }
+
+  .size-container{
+    margin-bottom: 60px;
   }
 `;
