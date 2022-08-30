@@ -2,6 +2,9 @@ import React,{useEffect, useState} from 'react'
 import styled from 'styled-components';
 import icon from '../../imgs/icon.JPG';
 import { ModalOverlayStyle } from '../../components/styled';
+import axios from 'axios'; 
+// import {API, checkUserInfo} from './utils'
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage(props) {
   const {test} = props;
@@ -10,18 +13,67 @@ export default function LoginPage(props) {
 
   const [emailValid, setEmailValid] = useState(false);
 
-  const User = {
-    email: 'thsudkcla7@naver.com',
-    pw: '1234'
+  const [name, setName] = useState('')
+  const [phoneNumber, setphoneNumber] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setconfirmPassword] = useState('')
+
+  // const getCheckEmailMessage () => {
+  //   email: 'thsudkcla7@naver.com',
+  //   pw: '1234'
+  // }
+
+  const navigate = useNavigate();
+
+  const ClickSingup = () => {
+    axios
+    .post("https://prod.wook2.xyz/sign-up", {
+      userEmail: email,
+      userName: name,
+      userPhoneNumber: phoneNumber,
+      userPassword: password,
+      userPasswordConfirm: confirmPassword,
+    })
+    .then((response) => {
+      alert('회원가입 성공!');
+      console.log('User profile', response.data.userEmail);
+      console.log("User token", response.data.jwt);
+      localStorage.setItem('token', response.data.jwt);
+      navigate("/", {replace:true});
+    })
+    .catch((error) => {
+      console.log("An error occured", error.response)
+    })
+    // fetch("https://prod.wook2.xyz/sign-up/users", {
+    //   method: "POST",
+    //   body: JSON.stringify({
+        // userEmail: email,
+        // userName: name,
+        // userPhoneNumber: phoneNumber,
+        // userPassword: password,
+        // userPasswordConfirm: confirmPassword,
+    //   })
+    // })
+    // .then((response) => {
+    //   console.log(response.status)
+    //   console.log(response.formData.jwt)
+
+    //   if(response.status === 200) {
+    //     response.json()
+    //   }
+    // })
+    // .catch((error) => console.log(error.response));
   }
 
+
+
   const onClickConfirm = () => {
-    if(email === User.email) {
-      alert('로그인 성공');
-    } else {
-      alert('회원가입 하기')
+    // if(email === User.email) {
+    //   alert('로그인 성공');
+    // } else {
+    //   alert('회원가입 하기')
       setSignup(true);
-    }
+    // }
   }
 
   const handleEmail = (e) => {
@@ -133,6 +185,10 @@ export default function LoginPage(props) {
             <input 
               type="text" 
               placeholder="이름을 입력해 주세요." 
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value)
+              }}
             />
           </div>
 
@@ -147,7 +203,11 @@ export default function LoginPage(props) {
             <div className="number-certif">
               <input 
                 type="text" 
-                placeholder="(예시)01034567890" 
+                placeholder="(예시)010-3456-7890" 
+                value={phoneNumber}
+                onChange={(e) => {
+                  setphoneNumber(e.target.value)
+                }}
               />
               <button>인증번호 받기</button>  
             </div>
@@ -161,7 +221,11 @@ export default function LoginPage(props) {
             <label>비밀번호</label>
             <input 
               type="text" 
-              placeholder="비밀번호를 입력해 주세요." 
+              placeholder="비밀번호를 입력해 주세요."
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value)
+              }} 
             />
             <div id="pwTxt">영문 대소문자, 숫자, 특수문자를 3가지 이상으로 조합하여 8자 이상 입력해 주세요.</div>
           </div>  
@@ -171,6 +235,10 @@ export default function LoginPage(props) {
             <input 
               type="text" 
               placeholder="비밀번호를 다시 한번 입력해 주세요." 
+              value={confirmPassword}
+              onChange={(e) => {
+                setconfirmPassword(e.target.value)
+              }} 
             />  
           </div>
           
@@ -189,7 +257,7 @@ export default function LoginPage(props) {
             <span>이벤트 소식 등 알림 정보 받기</span>
           </div>
 
-          <button id="signupBtn" onClick={()=>test(false)}>회원가입하기</button>
+          <button id="signupBtn" onClick={()=>{ClickSingup()}}>회원가입하기</button>
 
         </div>
       </div>

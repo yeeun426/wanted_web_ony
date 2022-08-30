@@ -3,8 +3,8 @@ import styled from 'styled-components';
 //swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Autoplay } from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
+// import "swiper/css";
+// import "swiper/css/navigation";
 // dummydata 
 import swiperData from '../data/swiper.json';
 SwiperCore.use([Navigation, Autoplay])	

@@ -13,8 +13,10 @@ import home from '../data/home.json'
 //swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Autoplay } from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
+// import "swiper/scss";
+import 'swiper/swiper-bundle.min.css'
+import 'swiper/swiper.min.css'
+// import "swiper/css/navigation";
 
 SwiperCore.use([Navigation, Autoplay])	
 
@@ -28,7 +30,7 @@ export default function IndexPage() {
     <div>
       <div>
         <Header test={setModal} page="index" />
-        <SwiperComponent swiperCategory = "home"/>
+        <SwiperComponent swiperCategory = "home" />
         
         <CareerInsightStyle>
           <div className="ci-title">

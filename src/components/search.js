@@ -1,3 +1,5 @@
+import React from 'react'
+
 import {SearchStyle} from '../components/styled'
 import { Link } from 'react-router-dom';
 //recoil

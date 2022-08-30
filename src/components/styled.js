@@ -1017,6 +1017,21 @@ export const CompanyDetailStyle = styled.div`
     margin: 0 auto;
     justify-content: space-between;
     height: 100%;
+    align-items: center;
+  }
+
+  .hiw-container button{
+    color: #002fdb;
+    border: 1px solid #e1e2e3;
+    height: 40px;
+    font-size: 15px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    padding: 0 27px;
+  }
+
+  .hiw-container button:hover{
+    border: 1px solid #002fdb;
   }
 
   .company-inner-wrapper{
