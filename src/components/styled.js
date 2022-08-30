@@ -472,7 +472,9 @@ export const ModalOverlayStyle = styled.div`
   justify-content: center;
   background-color: rgba(0,0,0,.5);
 
-
+  input:focus{
+    outline-color: #36f;
+  }
   .modal-wrapper::-webkit-scrollbar{
     display:none;
   }
@@ -627,6 +629,18 @@ export const ModalOverlayStyle = styled.div`
     }
   }
 
+  #signinBtn{
+    width: 100%;
+    height: 54px;
+    border-radius: 27px;
+    border: none;
+    font-family: 'Pretendard';
+    font-size: 16px;
+    margin-top: 14px;
+    background-color: #36f;
+    color: white;
+  }
+  
   #signupBtn{
     width: 100%;
     height: 54px;
@@ -643,6 +657,24 @@ export const ModalOverlayStyle = styled.div`
     left: 0;
     right: 0;
     z-index: 3;
+  }
+
+  .password-modal-wrapper{
+    background-color: white;
+    width: 400px;
+    overflow-y: auto;
+    border-radius: 5px;
+  }
+
+  #passwordChange {
+    font-size: 14px;
+    color: #36f;
+    width: 100%;
+    height: 54px;
+    cursor: pointer;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
   }
 `;
 

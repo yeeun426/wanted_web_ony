@@ -10,7 +10,8 @@ export default function LoginPage(props) {
   const {test} = props;
   const [email, setEmail] = useState('');
   const [signup, setSignup] = useState(false);
-
+  const [passwordPage, setPasswordPage] = useState(false);
+  
   const [emailValid, setEmailValid] = useState(false);
 
   const [name, setName] = useState('')
@@ -18,13 +19,9 @@ export default function LoginPage(props) {
   const [password, setPassword] = useState('')
   const [confirmPassword, setconfirmPassword] = useState('')
 
-  // const getCheckEmailMessage () => {
-  //   email: 'thsudkcla7@naver.com',
-  //   pw: '1234'
-  // }
-
   const navigate = useNavigate();
 
+  //회원가입
   const ClickSingup = () => {
     axios
     .post("https://prod.wook2.xyz/sign-up", {
@@ -42,40 +39,50 @@ export default function LoginPage(props) {
       navigate("/", {replace:true});
     })
     .catch((error) => {
-      console.log("An error occured", error.response)
+      alert(error.response.data.message)
+      setSignup(false)
     })
-    // fetch("https://prod.wook2.xyz/sign-up/users", {
-    //   method: "POST",
-    //   body: JSON.stringify({
-        // userEmail: email,
-        // userName: name,
-        // userPhoneNumber: phoneNumber,
-        // userPassword: password,
-        // userPasswordConfirm: confirmPassword,
-    //   })
-    // })
-    // .then((response) => {
-    //   console.log(response.status)
-    //   console.log(response.formData.jwt)
-
-    //   if(response.status === 200) {
-    //     response.json()
-    //   }
-    // })
-    // .catch((error) => console.log(error.response));
   }
 
+  // email 확인
+  const onClickEmail = () => {
+    axios
+    .get("https://prod.wook2.xyz/email-validation", {
+      params: {email: email}
+      // password: password,
+    })
+    .then((response) => {
+      console.log(response);
+      if(response.data.redirectPage === "/login") {
+        console.log(response.data);
+        setPasswordPage(true);
+      } else{
+        alert("존재하지 않는 이메일입니다.")
+        setSignup(true)
+      }
+    })
+    .catch((error) => {
+      alert(error.response.data.message)
+    })
+  };
 
-
-  const onClickConfirm = () => {
-    // if(email === User.email) {
-    //   alert('로그인 성공');
-    // } else {
-    //   alert('회원가입 하기')
-      setSignup(true);
-    // }
+  // login
+  const ClickLogin = () =>{    
+    axios
+    .post("https://prod.wook2.xyz/login",{
+      userEmail: email,
+      userPassword: password,
+    })
+    .then((res) => {
+      console.log(res)
+      alert("로그인 성공")
+    })
+    .catch((error) => {
+      alert(error.response.data.message)
+    })
   }
 
+  //이메일 형식
   const handleEmail = (e) => {
     setEmail(e.target.value);
     const regex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
@@ -101,7 +108,7 @@ export default function LoginPage(props) {
 
   return (
     <>
-    {!signup ?
+    {!signup && !passwordPage ?
     <ModalOverlayStyle>
       <div className="modal-wrapper">
         <div className="modal-icon">
@@ -129,7 +136,7 @@ export default function LoginPage(props) {
             </div>
           </div>  
             
-          <button id="emailBtn" onClick={onClickConfirm}>이메일로 계속하기</button>
+          <button id="emailBtn" onClick={onClickEmail}>이메일로 계속하기</button>
 
           <div id="modalOr">or</div>
           <div id="modalNext">다음 계정으로 계속하기</div>
@@ -171,8 +178,9 @@ export default function LoginPage(props) {
         </div>
       </div>
     </ModalOverlayStyle>
-
     :
+    <>
+    {signup && !passwordPage ? 
     <ModalOverlayStyle paddingBottom={22}>
       <div className="modal-wrapper">
         <div className="signup-title">
@@ -258,11 +266,37 @@ export default function LoginPage(props) {
           </div>
 
           <button id="signupBtn" onClick={()=>{ClickSingup()}}>회원가입하기</button>
-
         </div>
       </div>
     </ModalOverlayStyle>
-    }</>
+    : 
+    <ModalOverlayStyle paddingBottom={22}>
+      <div className="password-modal-wrapper">
+        <div className="signup-title">
+          <div>비밀번호 입력</div>
+        </div>
+        
+        <div className="modal-container">
+          <div className="modal-items">
+            <label>비밀번호</label>
+            <input 
+              type="text" 
+              placeholder="비밀번호" 
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value)
+              }}
+            />
+          </div>
+          <button id="signinBtn" onClick={()=>{ClickLogin()}}>로그인</button>
+          <div id="passwordChange">비밀번호 초기화/변경</div>
+        </div>
+      </div>
+    </ModalOverlayStyle>
+    }
+    </>
+    }
+    </>
   );
 };
 
