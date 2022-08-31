@@ -4,7 +4,6 @@ import Header from '../../components/header';
 import JobsSwiperComponent from '../../components/jobsSwiper';
 import Footer from '../../components/footer';
 import LoginModal from '../login/login';
-import Search from '../../components/search';
 
 import { MainContainerStyle, LineBannerStyle, JobsFeedStyle } from '../../components/styled';
 

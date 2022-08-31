@@ -7,7 +7,6 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage(props) {
-  const {test} = props;
   const [email, setEmail] = useState('');
   const [signup, setSignup] = useState(false);
   const [passwordPage, setPasswordPage] = useState(false);

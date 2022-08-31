@@ -240,6 +240,7 @@ export const MainContainerStyle = styled.div`
   .mc-list{
     display: flex;
     row-gap: 50px;
+    flex-wrap: wrap;
   }
 
   .mc-info{

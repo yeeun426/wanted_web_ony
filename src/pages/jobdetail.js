@@ -1,32 +1,68 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import {JobDetailStyles, MainContainerStyle} from '../components/styled';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import axios from 'axios';
+
+// swiper 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Pagination } from "swiper";
+SwiperCore.use([Pagination])	
 
 export default function JobDetail(){
+    const [jobDetail, setJobDetail] = useState([]);
+
+    const JobDetailInfo = async() => {
+        try {
+          //응답 성공
+          const response = await axios.get('https://prod.wook2.xyz/employment/1');
+          setJobDetail(response.data);
+          console.log(response);
+        } catch (error) {
+          //응답 실패
+          console.error(error);
+        }
+      }
+
+      useEffect(() => {
+        JobDetailInfo();
+      }, [])
+
     return(
         <JobDetailStyles>
             <Header />
             <div className="job-detail-wrapper">
             <div className="jdw-left-container">
-            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F10127%2Feevirddqe8ytqdq0__1080_790.jpg&amp;w=1000&amp;q=75" alt="알체라 - Frontend Engineer(AI플랫폼 서비스 Web 개발)"/>
+
+            <Swiper
+                slidesPerView={1}
+                spaceBetween={30}
+                pagination={true}
+                modules={[Pagination]}
+                className="mySwiper"
+            >
+            {Array.isArray(jobDetail.image)
+            && jobDetail.image.map((image)=>(
+            <SwiperSlide>
+                <img src={image.imageUrl} alt="알체라 - Frontend Engineer(AI플랫폼 서비스 Web 개발)"/>
+            </SwiperSlide>      
+            ))}
+            </Swiper>
+
                 <div className="jdw-name-info">
                     <h2>Frontend Engineer(AI플랫폼 서비스 Web 개발)</h2>
+
                     <div className="jdw-sub-name">
                         <div className="jdw-company-name">알체라</div>
                         <div className="jdw-response-level">응답률 평균 이상</div>
                         <div clssName="jdw-location">서울 . 한국</div>
                     </div>
                     <div className="jdw-tag-list">
-                        <div className="jdw-tag">#인원급성장</div>
-                        <div className="jdw-tag">#51~300명</div>
-                        <div className="jdw-tag">#설립4~9년</div>
-                        <div className="jdw-tag">#커피</div>
-                        <div className="jdw-tag">#안마의자</div>
-                        <div className="jdw-tag">#택시비</div>
-                        <div className="jdw-tag">#건강검진</div>
-                        <div className="jdw-tag">#인공지능</div>
-                        <div className="jdw-tag">#IT, 컨텐츠</div>
+                        
+                    {Array.isArray(jobDetail.companyTag)
+                        && jobDetail.companyTag.map((tag)=>(
+                        <div className="jdw-tag">#{tag.companyTagName}</div>
+                    ))}
                     </div>
                 </div>
 
@@ -119,11 +155,10 @@ export default function JobDetail(){
                     <h6>기술스택 ・ 툴</h6>
 
                     <div className="skill-item-list">
-                        <div className="skill-item">Java</div>
-                        <div className="skill-item">Python</div>
-                        <div className="skill-item">API</div>
-                        <div className="skill-item">Golang</div>
-                        <div className="skill-item">RESTful Architecture</div>
+                        {Array.isArray(jobDetail.techSkill)
+                        && jobDetail.techSkill.map((techSkill)=>(
+                        <div className="skill-item">{techSkill.techSkillName}</div>
+                        ))}
                     </div>
                 </div>
 
@@ -210,53 +245,20 @@ export default function JobDetail(){
             <MainContainerStyle width={250} height={188}>
                     <div className="jdw-position-recommend">이예은님, 이 포지션을 찾고 계셨나요?</div>
                     <div className="mc-list">
-                        <div className="mc-containers">
+                        {Array.isArray(jobDetail.associatedEmployment)
+                        && jobDetail.associatedEmployment.map((position)=>(
+                            <div className="mc-containers">
                             <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F29454%2Fpjxtg3m25hlip1fm__400_400.png&w=400&q=75" alt="" />
                             <div className="jf-items">
                                 <div className='jf-name'>
-                                    <div>Front-End 개발</div>
-                                    <div className="jf-company-name">노다랩</div>
-                                    <span>서울.한국</span>
-                                    <div className="jf-reward">채용보상금 1,000,000원</div>
+                                    <div>{position.title}</div>
+                                    <div className="jf-company-name">{position.context}</div>
+                                    <span>{position.country}.{position.location}</span>
+                                    <div className="jf-reward">채용보상금 {position.referralCompensation}원</div>
                                 </div>
                             </div>
                         </div>
-
-                        <div className="mc-containers">
-                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F29454%2Fpjxtg3m25hlip1fm__400_400.png&w=400&q=75" alt="" />
-                            <div className="jf-items">
-                                <div className='jf-name'>
-                                    <div>Front-End 개발</div>
-                                    <div className="jf-company-name">노다랩</div>
-                                    <span>서울.한국</span>
-                                    <div className="jf-reward">채용보상금 1,000,000원</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="mc-containers">
-                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F29454%2Fpjxtg3m25hlip1fm__400_400.png&w=400&q=75" alt="" />
-                            <div className="jf-items">
-                                <div className='jf-name'>
-                                    <div>Front-End 개발</div>
-                                    <div className="jf-company-name">노다랩</div>
-                                    <span>서울.한국</span>
-                                    <div className="jf-reward">채용보상금 1,000,000원</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="mc-containers">
-                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F29454%2Fpjxtg3m25hlip1fm__400_400.png&w=400&q=75" alt="" />
-                            <div className="jf-items">
-                                <div className='jf-name'>
-                                    <div>Front-End 개발</div>
-                                    <div className="jf-company-name">노다랩</div>
-                                    <span>서울.한국</span>
-                                    <div className="jf-reward">채용보상금 1,000,000원</div>
-                                </div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </MainContainerStyle>
             <Footer/>

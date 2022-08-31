@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {CompanyDetailStyle} from '../components/styled'
 import Header from '../components/header';
 import Footer from '../components/footer'
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 export default function Company() {
     const [total, setTotal] = useState(true);
@@ -26,6 +27,27 @@ export default function Company() {
         setEmployees(false);
         setRetiree(true);
     }
+
+    const[company, setCompany] = useState([]);
+
+    const NeededInsight = async() => {
+        try {
+          //응답 성공
+          const response = await axios.get('https://prod.wook2.xyz/company/1');
+          console.log(response);
+          setCompany(response.data)
+        } catch (error) {
+          //응답 실패
+          console.error(error);
+        }
+    }
+
+    console.log(company)
+    // debugger
+
+    useEffect(()=>{
+        NeededInsight();
+    },[])
     // const counter = ($counter, max) => {
     //     let now = max;
     //     const handle = setInterval(() => {
@@ -48,6 +70,7 @@ export default function Company() {
     // const max = 3219;
     // setTimeout(() => counter($counter, max), 2000);
     // }
+
     return(
         <CompanyDetailStyle>
             <Header />
@@ -56,7 +79,7 @@ export default function Company() {
                     <div className="hiw-container">
                         <div className="hiw-name">
                             <img src="https://static.wanted.co.kr/images/wdes/0_4.3da92f3a.jpg" alt="" />
-                            <div>알체라</div>
+                            <div>{company.name}</div>
                         </div>
                         <button>팔로우</button>
                     </div>
@@ -71,43 +94,20 @@ export default function Company() {
                             </h3>
 
                             <div className="jp-list">
+                                {Array.isArray(company.employment)
+                                ? company.employment.map((company) => (
                                     <div className="jp-items">
-                                <Link to ="/jobdetail">
-                                        <div className="jp-title">Frontend Engineer(AI플랫폼 서비스 Web 개발)</div>
-                                        </Link>
-
-                                        <h5>채용보상금 1,000,000원</h5>
-                                        <p>2022.09.08까지</p>
+                                    <Link to ="/jobdetail">
+                                        <div className="jp-title">{company.title}</div>
+                                    </Link>
+                                        <h5>채용보상금 {company.referralCompensation}원</h5>
+                                        <p>{company.location}</p>
                                         <button>
                                         <svg width="13" height="17" viewBox="0 0 13 17" style={{color: "rgb(51, 102, 255)"}}><defs><path id="bookmarkIconLine" d="M1.481 1.481h9.382v10.727c0 .409.331.74.74.74.41 0 .741-.331.741-.74V.74c0-.41-.331-.741-.74-.741H.74C.33 0 0 .332 0 .74v14.814c0 .568.614.925 1.108.643l5.18-2.873 5.104 2.873c.355.203.807.08 1.01-.276.203-.355.08-.808-.275-1.01l-5.471-3.083c-.228-.13-.507-.13-.735 0l-4.44 2.45V1.48z"></path></defs><g fill="none" fillRule="evenodd"><use fill="currentColor" xlinkHref="#bookmarkIconLine"></use></g></svg>
                                         </button>
                                     </div>
-                                <div className="jp-items">
-                                    <div className="jp-title">S/W QA Lead</div>
-                                    <h5>채용보상금 1,000,000원</h5>
-                                    <p>2022.09.23까지</p>
-                                    <button>
-                                    <svg width="13" height="17" viewBox="0 0 13 17" style={{color: "rgb(51, 102, 255)"}}><defs><path id="bookmarkIconLine" d="M1.481 1.481h9.382v10.727c0 .409.331.74.74.74.41 0 .741-.331.741-.74V.74c0-.41-.331-.741-.74-.741H.74C.33 0 0 .332 0 .74v14.814c0 .568.614.925 1.108.643l5.18-2.873 5.104 2.873c.355.203.807.08 1.01-.276.203-.355.08-.808-.275-1.01l-5.471-3.083c-.228-.13-.507-.13-.735 0l-4.44 2.45V1.48z"></path></defs><g fill="none" fillRule="evenodd"><use fill="currentColor" xlinkHref="#bookmarkIconLine"></use></g></svg>
-                                    </button>
-                                </div>
-
-                                <div className="jp-items">
-                                    <div className="jp-title">Backend Engineer</div>
-                                    <h5>채용보상금 1,000,000원</h5>
-                                    <p>2022.08.31까지</p>
-                                    <button>
-                                    <svg width="13" height="17" viewBox="0 0 13 17" style={{color: "rgb(51, 102, 255)"}}><defs><path id="bookmarkIconLine" d="M1.481 1.481h9.382v10.727c0 .409.331.74.74.74.41 0 .741-.331.741-.74V.74c0-.41-.331-.741-.74-.741H.74C.33 0 0 .332 0 .74v14.814c0 .568.614.925 1.108.643l5.18-2.873 5.104 2.873c.355.203.807.08 1.01-.276.203-.355.08-.808-.275-1.01l-5.471-3.083c-.228-.13-.507-.13-.735 0l-4.44 2.45V1.48z"></path></defs><g fill="none" fillRule="evenodd"><use fill="currentColor" xlinkHref="#bookmarkIconLine"></use></g></svg>
-                                    </button>
-                                </div>
-
-                                <div className="jp-items">
-                                    <div className="jp-title">Web 디자이너</div>
-                                    <h5>채용보상금 1,000,000원</h5>
-                                    <p>2022.08.31까지</p>
-                                    <button>
-                                    <svg width="13" height="17" viewBox="0 0 13 17" style={{color: "rgb(51, 102, 255)"}}><defs><path id="bookmarkIconLine" d="M1.481 1.481h9.382v10.727c0 .409.331.74.74.74.41 0 .741-.331.741-.74V.74c0-.41-.331-.741-.74-.741H.74C.33 0 0 .332 0 .74v14.814c0 .568.614.925 1.108.643l5.18-2.873 5.104 2.873c.355.203.807.08 1.01-.276.203-.355.08-.808-.275-1.01l-5.471-3.083c-.228-.13-.507-.13-.735 0l-4.44 2.45V1.48z"></path></defs><g fill="none" fillRule="evenodd"><use fill="currentColor" xlinkHref="#bookmarkIconLine"></use></g></svg>
-                                    </button>
-                                </div>
+                                ))
+                            :null}
                             </div>
 
                             <button className="jp-more-btn">더 많은 포지션 보기 +</button>
@@ -116,10 +116,16 @@ export default function Company() {
                         <div className="intro-company-container">
                             <h3>회사 소개</h3>
                             <div className="icc-image-list">
-                                <button>
-                                    <img src="https://static.wanted.co.kr/images/company/10127/eevirddqe8ytqdq0__1080_790.jpg" alt="company office 1"/>
-                                </button>
-                                <button>
+                                {Array.isArray(company.companyImage)
+                                &&
+                                company.companyImage.map((company)=>(
+                                    <button>
+                                        <img src={company.imageUrl} alt="company office 1"/>
+                                    </button>
+                                ))
+                            }
+
+                                {/* <button>
                                     <img src="https://static.wanted.co.kr/images/company/10127/ntpzmnb2ifhqd38k__1080_790.jpg" alt="company office 2"/>
                                 </button>
                                 <button>
@@ -127,7 +133,7 @@ export default function Company() {
                                 </button>
                                 <button>
                                     <img src="https://static.wanted.co.kr/images/company/10127/8mys4op6qd5pp4cq__1080_790.jpg" alt="company office 4"/>
-                                </button>
+                                </button> */}
                             </div>
                             <div className="icc-details">
                                 [About Alchera]
@@ -251,18 +257,17 @@ export default function Company() {
 
                     <div className="company-right-wrapper">
                         <h3>태그</h3>
-                        <button>#인원급성장</button>
-                        <button>#51~300명</button>
-                        <button>#설립4~9년</button>
-                        <button>#커피</button>
-                        <button>#안마의자</button>
-                        <button>#택시비</button>
-                        <button>#건강검진</button>
-                        <button>#인공지능</button>
-                        <button>#재택근무</button>
-                        <button>#IT, 컨텐츠</button>
+                    {Array.isArray(company.companyTag) 
+                    ?
+                    company.companyTag.map((company)=>(
+
+                        <button>#{company.companyTagName}</button>
+
+                    ))
+                    :null}
                         <button id="crw-more-btn">+ 태그 의견보내기</button>
                     </div>
+
                 </div>
             </div>
             <Footer />

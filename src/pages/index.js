@@ -1,5 +1,4 @@
 import React,{useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
 //styled components
 import {CreatorBannerStyle, CareerInsightStyle, RecruitmentStyle, SubscribeStyle, MainContainerStyle, LineBannerStyle} from '../components/styled';
 //components
