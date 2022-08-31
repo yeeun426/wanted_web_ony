@@ -16,10 +16,10 @@ function SwiperComponent(props) {
     useEffect(() => {
     },[swiperCategory]);
 
-    console.log(swiperData);
-    console.log(swiperCategory);
-    console.log(swiperData.home);
-    console.log(swiperData.swiperCategory);
+    // console.log(swiperData);
+    // console.log(swiperCategory);
+    // console.log(swiperData.home);
+    // console.log(swiperData.swiperCategory);
 
 
     return(

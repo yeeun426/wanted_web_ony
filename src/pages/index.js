@@ -1,4 +1,5 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 //styled components
 import {CreatorBannerStyle, CareerInsightStyle, RecruitmentStyle, SubscribeStyle, MainContainerStyle, LineBannerStyle} from '../components/styled';
 //components
@@ -6,16 +7,15 @@ import Header from '../components/header';
 import SwiperComponent from '../components/swiper';
 import Footer from '../components/footer';
 import LoginModal from './login/login';
-// import Search from '../components/search';
 // dummydata 
 import home from '../data/home.json'
-
 //swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Autoplay } from "swiper";
 // import "swiper/scss";
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
+import axios from 'axios';
 // import "swiper/css/navigation";
 
 SwiperCore.use([Navigation, Autoplay])	
@@ -23,9 +23,34 @@ SwiperCore.use([Navigation, Autoplay])
 
 export default function IndexPage() {
   const [modal, setModal] = useState(false);
+  const [insight, setInsight] = useState([]);
 
   console.log(modal);
 
+  const NeededInsight = async() => {
+    try {
+      //응답 성공
+      setInsight(null);
+      const response = await axios.get('https://prod.wook2.xyz/insights', {
+        params: {
+          tagId:1
+        }
+      });
+      setInsight(response.data.result.insights);
+      console.log(response);
+    } catch (error) {
+      //응답 실패
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    NeededInsight();
+
+  }, [])
+
+  console.log(insight);
+  console.log(home)
   return (
     <div>
       <div>
@@ -49,13 +74,13 @@ export default function IndexPage() {
             >
               <SwiperSlide>
                 <button>
-                  IT/기술
+                  전체
                 </button>
               </SwiperSlide>
 
               <SwiperSlide>
                 <button>
-                  인간관계
+                  회사생활
                 </button>
               </SwiperSlide>
 
@@ -85,7 +110,7 @@ export default function IndexPage() {
 
               <SwiperSlide>
                 <button>
-                  회사생활
+                  IT/기술
                 </button>
               </SwiperSlide>
 
@@ -171,21 +196,32 @@ export default function IndexPage() {
 
           <MainContainerStyle width={250} height={170} fontsize={16} widthtotal={1080} paddingTop={1}>
             <div className="mc-list" style={{flexWrap: "wrap"}}>
-
-              {home.insight.map((insight)=>(
-              <div className="mc-containers" key={insight.id}>
-                <img src={insight.image} alt={insight.title} />            
-                <div className="ci-info">{insight.title}</div>
-                <span className="ci-subinfo">{insight.info}</span>
-                <div className='ci-writer'>
-                  <img src={insight.writeImg} alt="brunch" />
-                  <div>{insight.writeName}</div>
+            
+            {Array.isArray(insight)
+              ? insight.map((api)=>(
+                <div key={api.insight_id}>
+                  {home.insight.map((insight)=>(
+                    <div id="true">
+                      {api.insight_id === insight.id
+                      ?
+                        <div className="mc-containers" key={insight.id} onClick={() => window.open(api.insight_url, '_blank')}>
+                          <img src={insight.image} alt={insight.title} />            
+                          <div className="ci-info">{insight.title}</div>
+                          <span className="ci-subinfo">{insight.info}</span>
+                          <div className='ci-writer'>
+                            <img src={insight.writeImg} alt="brunch" />
+                            <div>{insight.writeName}</div>
+                          </div>
+                        </div>
+                      : null}
+                    </div>
+                  ))}
                 </div>
-              </div>
-              ))}
-
+              ))
+            :null
+            }
             </div>
-        </MainContainerStyle>
+          </MainContainerStyle>
         </CareerInsightStyle>
 
         <CreatorBannerStyle>

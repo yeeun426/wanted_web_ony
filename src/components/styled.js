@@ -219,7 +219,7 @@ export const MainContainerStyle = styled.div`
     img{
       border-radius: 4px;
       width: 100%;
-      height: ${(props) => props.height}px !important;
+      height: ${(props) => props.height}px;
       object-fit: cover;
       object-position: top;
     }
