@@ -5,6 +5,8 @@ import JobsPage from '../pages/jobsfeed/jobsfeed';
 import NoMatchPage from '../pages/noMatch';
 import TagSearch from '../pages/search/tagsearch'
 import Company from '../pages/company'
+import JobDetail from '../pages/jobdetail';
+
 export default function RootRoute() {
   return (
     <BrowserRouter>
@@ -16,6 +18,7 @@ export default function RootRoute() {
         <Route path="/jobsfeed" element={<JobsPage />}  key="jobsfeed" />
         <Route path="/tagsearch" element={<TagSearch />}  key="tagsearch" />
         <Route path="/company" element={<Company />}  key="company" />
+        <Route path="/jobdetail" element={<JobDetail />} key="jobdetail" />
 
         {/* 경로가 유효하지 않을 때 */}
         <Route path="*" element={<NoMatchPage />} key="noMatch" />

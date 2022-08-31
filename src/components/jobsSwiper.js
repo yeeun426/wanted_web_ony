@@ -3,24 +3,11 @@ import styled from 'styled-components';
 //swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Autoplay } from "swiper";
-// import "swiper/css";
-// import "swiper/css/navigation";
 // dummydata 
 import swiperData from '../data/swiper.json';
 SwiperCore.use([Navigation, Autoplay])	
 
 function SwiperComponent(props) {
-    const swiperCategory = props.swiperCategory;
-    // const [swiperCategory, setswiperCategory] = useState(props);
-
-    useEffect(() => {
-    },[swiperCategory]);
-
-    console.log(swiperData);
-    console.log(swiperCategory);
-    console.log(swiperData.home);
-    console.log(swiperData.swiperCategory);
-
 
     return(
         <SwiperWrapper>
@@ -39,7 +26,7 @@ function SwiperComponent(props) {
             >
             {/* {swiperData.swiperCategory && swiperData.swiperCategory.length > 0 &&  */}
             {
-                swiperData.home.map((swiper) =>
+                swiperData.jobsfeed.map((swiper) =>
                 <SwiperSlide key={swiper.id}>
                     <div>
                         <img src={swiper.image} alt={swiper.title} />

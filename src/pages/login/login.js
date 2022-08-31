@@ -20,7 +20,7 @@ export default function LoginPage(props) {
   const [confirmPassword, setconfirmPassword] = useState('')
 
   const navigate = useNavigate();
-
+  const [user, setUser] = useState('');
   //회원가입
   const ClickSingup = () => {
     axios
@@ -33,10 +33,10 @@ export default function LoginPage(props) {
     })
     .then((response) => {
       alert('회원가입 성공!');
+      navigate("/", {replace:true});
       console.log('User profile', response.data.userEmail);
       console.log("User token", response.data.jwt);
       localStorage.setItem('token', response.data.jwt);
-      navigate("/", {replace:true});
     })
     .catch((error) => {
       alert(error.response.data.message)
@@ -74,14 +74,19 @@ export default function LoginPage(props) {
       userPassword: password,
     })
     .then((res) => {
-      console.log(res)
+      console.log("음",res)
       alert("로그인 성공")
+      setUser({
+        email: res.data.userEmail,
+      })
+      document.location.href = "/";
     })
     .catch((error) => {
       alert(error.response.data.message)
     })
   }
 
+  console.log(user);
   //이메일 형식
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -228,7 +233,7 @@ export default function LoginPage(props) {
           <div className="modal-items">
             <label>비밀번호</label>
             <input 
-              type="text" 
+              type="password" 
               placeholder="비밀번호를 입력해 주세요."
               value={password}
               onChange={(e) => {
@@ -241,7 +246,7 @@ export default function LoginPage(props) {
           <div className="modal-items">
             <label>비밀번호 확인</label>
             <input 
-              type="text" 
+              type="password" 
               placeholder="비밀번호를 다시 한번 입력해 주세요." 
               value={confirmPassword}
               onChange={(e) => {
@@ -280,7 +285,7 @@ export default function LoginPage(props) {
           <div className="modal-items">
             <label>비밀번호</label>
             <input 
-              type="text" 
+              type="password" 
               placeholder="비밀번호" 
               value={password}
               onChange={(e) => {
