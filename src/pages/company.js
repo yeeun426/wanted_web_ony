@@ -78,8 +78,8 @@ export default function Company() {
                 <div className='header-inner-wrapper'>
                     <div className="hiw-container">
                         <div className="hiw-name">
-                            <img src="https://static.wanted.co.kr/images/wdes/0_4.3da92f3a.jpg" alt="" />
-                            <div>알체라</div>
+                            <img src={company.logo_image_url} alt="" />
+                            <div>{company.name}</div>
                         </div>
                         <button>팔로우</button>
                     </div>
@@ -136,58 +136,40 @@ export default function Company() {
                                 </button> */}
                             </div>
                             <div className="icc-details">
-                                [About Alchera]
-                                <br/>
-                                <br/>
-                                알체라는 AI로 세상을 더 의미 있게 만들어 가고 싶은 사람들이 모인 곳입니다.
-                                <br/>
-                                저희가 꿈꾸는 혁신은 복잡하게 여겨지는 세상의 문제들을 AI 기술로 쉽게 풀어나가는 것입니다. 알체라는 국내 1위의 영상 인식 기술력을 보유하고 있으며, 이를 상용화 및 서비스하고 있습니다.
-                                <br/>
-                                <br/>
-                                알체라가 선도하는 Smart Viewing은 카메라에 최적화된 AI 모델을 탑재하여 기존 모니터링의 한계를 비약적으로 극복합니다. 저희는 ‘Smart Viewing’을 실현하기 위해 수많은 Data를 직접 수집하고 학습시키면서 신뢰받는 AI Dataset을 구축하였습니다. 이를 바탕으로 다양한 분야의 니즈를 파악하여 끊임없이 도전하였습니다. 현재는 AI를 접목할 수 있는 레그 테크(Reg-tech), 그린테크(green-tech), 텔레메디신(telemedicine), 보안 등 다양한 분야에서 사업 영역을 계속 넓혀가고 있습니다.
-                                <br />
-                                <br />
-                                모든 카메라가 똑똑해지는 그날까지, 시장을 리드하고 세상의 패러다임을 바꿀 분들을 기다립니다. 저희와 함께 새로운 가치를 만드실 분은 알체라에 합류해 주세요! 
-                                <br/>
-                                <br/>
-                                <br/>
-                                - Alchera Homepage (https://alcherainc.com/about) <br/>
-                                - Alchera Youtube (https://www.youtube.com/channel/UC5xYRGgq2dMEjwO-TJDf2Hw) <br/>
-                                - Alchera Blog (https://medium.com/dreamtime-alchera-inc/tagged/korean) <br/>
-                                - Alchera Facebook (https://www.facebook.com/alcherainc) <br/>
-                                - Alchera Benefits (https://url.kr/waxg5d) <br/>
-                                <br/><br/>
-                                http://alcherainc.com
+                                {company.description}                                
                             </div>
 
                             <button>더 보기 +</button>
                         </div>
-
+            {
+                (function(){
+                    if(sessionStorage.getItem('id') != undefined) return (
+                        //로그인 성공
+                    <>
                         <div className="salary-items">
-                            <div className="si-title">
-                                <h3>평균 연봉</h3>
-                                <h4>출처:금감원</h4>
-                            </div>
-
-                            <div className="salary-info">
-                                <div className="si-info">
-                                    <div className="si-new">신규 입사자</div>
-                                    <div className="si-new-info">정보 없음</div>
-                                </div>
-
-                                <div className="si-border"></div>
-
-                                <div className="si-info">
-                                    <div className="si-new">전체</div>
-                                    <div className="si-new-info">3,219만원</div>
-                                    {/* <div>
-                                        <div className="si-number-info">0</div>
-                                        <div>만원</div>
-                                    </div> */}
-                                </div>
-                            </div>
+                        <div className="si-title">
+                            <h3>평균 연봉</h3>
+                            <h4>출처:금감원</h4>
                         </div>
 
+                        <div className="salary-info">
+                            <div className="si-info">
+                                <div className="si-new">신규 입사자</div>
+                                <div className="si-new-info">정보 없음</div>
+                            </div>
+
+                            <div className="si-border"></div>
+
+                            <div className="si-info">
+                                <div className="si-new">전체</div>
+                                <div className="si-new-info">3,219만원</div>
+                                {/* <div>
+                                    <div className="si-number-info">0</div>
+                                    <div>만원</div>
+                                </div> */}
+                            </div>
+                        </div>
+                        </div>
                         <div className="size-container">
                             <div className="si-title">
                                 <h3>직원수</h3>
@@ -228,7 +210,18 @@ export default function Company() {
                                 </button>
                             </div>
                         </div>
-
+                    </>
+                    );else return (
+                        <div className="kredit-data">
+                            <img src="https://static.wanted.co.kr/images/kreditDataHidden.png" alt="kreditDataHidden"/>
+                            <div className="kredit-data-items">
+                               <h4>이 회사의 연봉과 인원을 보고싶다면?</h4>
+                               <h5>원티드 회원가입</h5>
+                            </div>
+                        </div>
+                    );
+                })()
+            }
                         <div>
                             <h3>이 회사의 뉴스</h3>
                             <div className="company-news-list">

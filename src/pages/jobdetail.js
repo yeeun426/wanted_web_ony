@@ -15,15 +15,18 @@ export default function JobDetail(){
     const JobDetailInfo = async() => {
         try {
           //응답 성공
-          const response = await axios.get('https://prod.wook2.xyz/employment/1');
+          const response = await axios.get('https://prod.wook2.xyz/employment',{
+            params: {
+                employmentId:1
+            }
+          });
           setJobDetail(response.data);
-          console.log(response);
+          console.log(response.data);
         } catch (error) {
           //응답 실패
           console.error(error);
         }
       }
-
       useEffect(() => {
         JobDetailInfo();
       }, [])

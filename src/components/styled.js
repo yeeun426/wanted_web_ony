@@ -1433,6 +1433,40 @@ export const CompanyDetailStyle = styled.div`
     overflow: hidden;
     border-radius: 3px;
   }
+
+  .kredit-data-items{
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 420px;
+    padding: 80px 40px;
+    border: 1px solid #e1e2e3;
+    background-color: #fff;
+    text-align: center;
+  }
+
+  .kredit-data{
+    position: relative;
+  }
+
+  .kredit-data h4{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #333;
+    margin: 0;
+  }
+
+  .kredit-data h5{
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #258bf7;
+    text-decoration: underline;
+    margin-top: 15px;
+  }
 `;
 
 export const JobDetailStyles = styled.div`
