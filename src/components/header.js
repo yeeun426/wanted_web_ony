@@ -95,7 +95,7 @@ const HeaderItem = styled.div`
 
   .focused{
     height: 100%;
-    box-shadow: inset 0 -2px #258bf7;
+    border-bottom: 2px solid #258bf7;
   }
 
   .menuList {

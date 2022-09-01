@@ -18,6 +18,48 @@ export default function LoginPage(props) {
   const [password, setPassword] = useState('')
   const [confirmPassword, setconfirmPassword] = useState('')
 
+  // 동의 checkbox
+  const [allCheck, setAllCheck] = useState(false);
+  const [infoCheck, setInfoCheck] = useState(false);
+  const [marketingCheck, setMarketingCheck] = useState(false);
+
+  const allBtnEvent = () => {
+    if(allCheck === false) {
+      setAllCheck(true);
+      setInfoCheck(true);
+      setMarketingCheck(true);
+    }else {
+      setAllCheck(false);
+      setInfoCheck(false);
+      setMarketingCheck(false);
+    }
+  };
+
+  const infoBtnEvent = () => {
+    if(infoCheck === false) {
+      setInfoCheck(true)
+    } else {
+      setInfoCheck(false)
+    }
+  };
+
+  const marketingBtnEvent = () => {
+    if(marketingCheck === false) {
+      setMarketingCheck(true)
+    } else{
+      setMarketingCheck(false)
+    }
+  }
+
+  useEffect(() => {
+    if(infoCheck === true && marketingCheck === true) {
+      setAllCheck(true)
+    } else {
+      setAllCheck(false)
+    }
+  },[infoCheck, marketingCheck])
+
+
   const navigate = useNavigate();
   const [user, setUser] = useState('');
   //회원가입
@@ -255,17 +297,17 @@ export default function LoginPage(props) {
           </div>
           
           <div className="agree-items">
-            <input type="checkbox" />
+            <input type="checkbox" checked={allCheck} onChange={allBtnEvent} />
             <span>전체 동의</span>
           </div>
 
           <div className="agree-subitems">
-            <input type="checkbox" />
+            <input type="checkbox"  checked={infoCheck} onChange={infoBtnEvent} />
             <span>개인정보 수집 빛 이용 동의(필수)</span>
           </div>
 
           <div className="agree-subitems">
-            <input type="checkbox" />
+            <input type="checkbox"  checked={marketingCheck} onChange={marketingBtnEvent} />
             <span>이벤트 소식 등 알림 정보 받기</span>
           </div>
 

@@ -35,7 +35,7 @@ export default function Company() {
           //응답 성공
           const response = await axios.get('https://prod.wook2.xyz/company/1');
           console.log(response);
-          setCompany(response.data)
+          setCompany(response.data.result)
         } catch (error) {
           //응답 실패
           console.error(error);
@@ -79,7 +79,7 @@ export default function Company() {
                     <div className="hiw-container">
                         <div className="hiw-name">
                             <img src="https://static.wanted.co.kr/images/wdes/0_4.3da92f3a.jpg" alt="" />
-                            <div>{company.name}</div>
+                            <div>알체라</div>
                         </div>
                         <button>팔로우</button>
                     </div>
@@ -94,13 +94,13 @@ export default function Company() {
                             </h3>
 
                             <div className="jp-list">
-                                {Array.isArray(company.employment)
-                                ? company.employment.map((company) => (
+                                {Array.isArray(company.employmentList)
+                                ? company.employmentList.map((company) => (
                                     <div className="jp-items">
                                     <Link to ="/jobdetail">
                                         <div className="jp-title">{company.title}</div>
                                     </Link>
-                                        <h5>채용보상금 {company.referralCompensation}원</h5>
+                                        <h5>채용보상금 {company.compensation}원</h5>
                                         <p>{company.location}</p>
                                         <button>
                                         <svg width="13" height="17" viewBox="0 0 13 17" style={{color: "rgb(51, 102, 255)"}}><defs><path id="bookmarkIconLine" d="M1.481 1.481h9.382v10.727c0 .409.331.74.74.74.41 0 .741-.331.741-.74V.74c0-.41-.331-.741-.74-.741H.74C.33 0 0 .332 0 .74v14.814c0 .568.614.925 1.108.643l5.18-2.873 5.104 2.873c.355.203.807.08 1.01-.276.203-.355.08-.808-.275-1.01l-5.471-3.083c-.228-.13-.507-.13-.735 0l-4.44 2.45V1.48z"></path></defs><g fill="none" fillRule="evenodd"><use fill="currentColor" xlinkHref="#bookmarkIconLine"></use></g></svg>
@@ -116,9 +116,9 @@ export default function Company() {
                         <div className="intro-company-container">
                             <h3>회사 소개</h3>
                             <div className="icc-image-list">
-                                {Array.isArray(company.companyImage)
+                                {Array.isArray(company.companyImageList)
                                 &&
-                                company.companyImage.map((company)=>(
+                                company.companyImageList.map((company)=>(
                                     <button>
                                         <img src={company.imageUrl} alt="company office 1"/>
                                     </button>
@@ -257,9 +257,9 @@ export default function Company() {
 
                     <div className="company-right-wrapper">
                         <h3>태그</h3>
-                    {Array.isArray(company.companyTag) 
+                    {Array.isArray(company.companyTagList) 
                     ?
-                    company.companyTag.map((company)=>(
+                    company.companyTagList.map((company)=>(
 
                         <button>#{company.companyTagName}</button>
 
