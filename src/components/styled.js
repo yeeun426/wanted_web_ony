@@ -187,6 +187,18 @@ export const MainContainerStyle = styled.div`
     }
   }
 
+  .mc-login-title{
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mc-login-title img{
+    width: 114px;
+    height: fit-content;
+  }
+
   .mc-btn-sub{
     display: flex;
     justify-content: center;
@@ -194,6 +206,7 @@ export const MainContainerStyle = styled.div`
     font-size: 15px;
     color: #767676;
     margin-top: 5px;
+    font-family: Pretendard-Thin;
   
     svg{
       width: 15px;
