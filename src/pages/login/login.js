@@ -6,7 +6,7 @@ import axios from 'axios';
 // import {API, checkUserInfo} from './utils'
 import { useNavigate } from 'react-router-dom';
 
-export default function LoginPage(props) {
+export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [signup, setSignup] = useState(false);
   const [passwordPage, setPasswordPage] = useState(false);
@@ -107,6 +107,7 @@ export default function LoginPage(props) {
     })
   };
 
+  let sessionStorage = window.sessionStorage;
   // login
   const ClickLogin = () =>{    
     axios
@@ -116,18 +117,22 @@ export default function LoginPage(props) {
     })
     .then((res) => {
       console.log("음",res)
+      console.log(res.data.userEmail)
+
+      sessionStorage.setItem("id", res.data.userEmail)
+      setUser(sessionStorage.getItem("id"));
+      console.log(user)
+
       alert("로그인 성공")
-      setUser({
-        email: res.data.userEmail,
-      })
+
       document.location.href = "/";
+      console.log(user);
+
     })
     .catch((error) => {
       alert(error.response.data.message)
     })
   }
-
-  console.log(user);
   //이메일 형식
   const handleEmail = (e) => {
     setEmail(e.target.value);
