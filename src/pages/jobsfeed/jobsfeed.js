@@ -1,14 +1,49 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 // 공통컴포넌트
 import Header from '../../components/header';
 import JobsSwiperComponent from '../../components/jobsSwiper';
 import Footer from '../../components/footer';
 import LoginModal from '../login/login';
-
+import axios from 'axios';
+//styled
 import { MainContainerStyle, LineBannerStyle, JobsFeedStyle } from '../../components/styled';
+//dummydata
+import jobsfeed from '../../data/jobsfeed.json';
 
 function JobsFeed() {
     const [modal, setModal] = useState(false);
+
+    const JobsList = async() => {
+        try {
+          //응답 성공
+          const response = await axios.get('https://prod.wook2.xyz/employment/themes/incentive');
+        //   setJobDetail(response.data);
+          console.log(response.data);
+        } catch (error) {
+          //응답 실패
+          console.error(error);
+        }
+      }
+
+    const positionList = jobsfeed.position.filter(jobsfeed => (jobsfeed.kind === "position"));
+    const userList = jobsfeed.position.filter(jobsfeed => (jobsfeed.kind === "user"));
+    
+    const [bookmark,setBookmark] = useState([]);
+
+    const BookMarkBtn = (e) => {
+        jobsfeed.position[e.currentTarget.id-1].bookmark
+        ? jobsfeed.position[e.currentTarget.id-1].bookmark = false
+        : jobsfeed.position[e.currentTarget.id-1].bookmark = true
+
+        jobsfeed.position.map((item)=>{
+            if(jobsfeed.position[e.currentTarget.id-1].id === item.id) 
+            setBookmark(item);
+        console.log(jobsfeed.position)
+        })
+    }
+    
+    useEffect(() => {   
+     }, [bookmark.like]);
 
     return(
         <JobsFeedStyle>
@@ -39,53 +74,25 @@ function JobsFeed() {
                         </div>
             
                         <div className="mc-list">
+                    {positionList.map((position)=>(
                         <div className="mc-containers">
-                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F17276%2Fbivyojn2jvwlgtdn__400_400.jpg&w=400&q=75" alt="드림에이스"/>
+                            <img src={position.image} alt="드림에이스"/>
+                            <button id={position.id} className="bookmark-icon" onClick={BookMarkBtn}>
+                                {!position.bookmark
+                                ?<svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path><path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fillOpacity="0.25"></path></svg>
+                                :<svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path><path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="rgb(51,102,255)"></path></svg>
+                                }
+                                </button>
                             <div className="jf-items">
                                 <div className='jf-name'>
-                                    <div>[ONiON] Web/App hybrid engineer (senior)</div>
-                                    <div className="jf-company-name">이지시스(엠블)</div>
-                                    <span>서울.한국</span>
-                                    <div className="jf-reward">채용보상금 1,000,000원</div>
+                                    <div>{position.title}</div>
+                                    <div className="jf-company-name">{position.info}</div>
+                                    <span>{position.location}</span>
+                                    <div className="jf-reward">{position.reward}</div>
                                 </div>
                             </div>
                         </div>
-            
-                        <div className="mc-containers">
-                          <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F5380%2Fvd2jueavxoxdrb5l__400_400.jpg&w=400&q=75" alt="플랜얼라이언스" />
-                          <div className="jf-items">
-                                <div className='jf-name'>
-                                    <div>(모던하우스) 반려동물용품 MD</div>
-                                    <div className="jf-company-name">모던하우스(MH&Co.)</div>
-                                    <span>서울.한국</span>
-                                    <div className="jf-reward">채용보상금 1,000,000원</div>
-                                </div>
-                            </div>
-                      </div>
-            
-                        <div className="mc-containers">
-                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F13316%2Fnxitbyktz7r1pt1y__400_400.png&w=400&q=75" alt="플랜얼라이언스" />
-                            <div className="jf-items">
-                                <div className='jf-name'>
-                                    <div>HR Leader</div>
-                                    <div className="jf-company-name">바잉스퀘어</div>
-                                    <span>서울.한국</span>
-                                    <div className="jf-reward">채용보상금 1,000,000원</div>
-                                </div>
-                            </div>
-                        </div>
-            
-                      <div className="mc-containers">
-                          <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F2556%2Fact7w6bg6b0qcbuz__400_400.jpg&w=400&q=75" alt="플랜얼라이언스" />
-                          <div className="jf-items">
-                                <div className='jf-name'>
-                                    <div>[인스파이어디] 신입 기획자</div>
-                                    <div className="jf-company-name">크레비스파트너스</div>
-                                    <span>서울.한국</span>
-                                    <div className="jf-reward">채용보상금 1,000,000원</div>
-                                </div>
-                            </div>
-                        </div>
+                    ))}
                     </div>
                     </MainContainerStyle>
                     ); else return (
@@ -135,21 +142,31 @@ function JobsFeed() {
                         </div>
             
                         <div className="mc-list">
+                        {userList.map((user)=>(
                         <div className="mc-containers">
-                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F17276%2Fbivyojn2jvwlgtdn__400_400.jpg&w=400&q=75" alt="드림에이스"/>
+                            <img src={user.image} alt="드림에이스"/>
+                            <button id={user.id} className="bookmark-icon" onClick={BookMarkBtn}>
+                            {!user.bookmark
+                                ?<svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path><path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fillOpacity="0.25"></path></svg>
+                                :<svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path><path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="rgb(51,102,255)"></path></svg>
+                                }                           
+                            </button>
                             <div className="jf-items">
                                 <div className='jf-name'>
-                                    <div>[ONiON] Web/App hybrid engineer (senior)</div>
-                                    <div className="jf-company-name">이지시스(엠블)</div>
-                                    <span>서울.한국</span>
-                                    <div className="jf-reward">채용보상금 1,000,000원</div>
+                                    <div>{user.title}</div>
+                                    <div className="jf-company-name">{user.info}</div>
+                                    <span>{user.location}</span>
                                 </div>
                             </div>
                         </div>
+                    ))}
             
-                        <div className="mc-containers">
-                          <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F5380%2Fvd2jueavxoxdrb5l__400_400.jpg&w=400&q=75" alt="플랜얼라이언스" />
-                          <div className="jf-items">
+                        {/* <div className="mc-containers">
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F5380%2Fvd2jueavxoxdrb5l__400_400.jpg&w=400&q=75" alt="플랜얼라이언스" />
+                            <button className="bookmark-icon">
+                                <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path><path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fillOpacity="0.25"></path></svg>
+                            </button>
+                            <div className="jf-items">
                                 <div className='jf-name'>
                                     <div>(모던하우스) 반려동물용품 MD</div>
                                     <div className="jf-company-name">모던하우스(MH&Co.)</div>
@@ -161,6 +178,9 @@ function JobsFeed() {
             
                         <div className="mc-containers">
                             <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F13316%2Fnxitbyktz7r1pt1y__400_400.png&w=400&q=75" alt="플랜얼라이언스" />
+                            <button className="bookmark-icon">
+                                <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path><path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fillOpacity="0.25"></path></svg>
+                            </button>
                             <div className="jf-items">
                                 <div className='jf-name'>
                                     <div>HR Leader</div>
@@ -171,9 +191,12 @@ function JobsFeed() {
                             </div>
                         </div>
             
-                      <div className="mc-containers">
-                          <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F2556%2Fact7w6bg6b0qcbuz__400_400.jpg&w=400&q=75" alt="플랜얼라이언스" />
-                          <div className="jf-items">
+                        <div className="mc-containers">
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F2556%2Fact7w6bg6b0qcbuz__400_400.jpg&w=400&q=75" alt="플랜얼라이언스" />
+                            <button className="bookmark-icon">
+                                <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path><path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fillOpacity="0.25"></path></svg>
+                            </button>
+                            <div className="jf-items">
                                 <div className='jf-name'>
                                     <div>[인스파이어디] 신입 기획자</div>
                                     <div className="jf-company-name">크레비스파트너스</div>
@@ -181,7 +204,7 @@ function JobsFeed() {
                                     <div className="jf-reward">채용보상금 1,000,000원</div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     </MainContainerStyle>
                     );
@@ -348,6 +371,9 @@ function JobsFeed() {
             <div className="mc-list">
             <div className="mc-containers">
                 <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F4577%2Fxgczowftiwmedkkc__400_400.jpg&w=400&q=75" alt="드림에이스"/>
+                <button className="bookmark-icon">
+                    <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path><path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fillOpacity="0.25"></path></svg>
+                </button>
                 <div className="jf-items">
                     <div className='jf-name'>
                         <div>[ONiON] Web/App hybrid engineer (senior)</div>
@@ -359,8 +385,11 @@ function JobsFeed() {
             </div>
 
             <div className="mc-containers">
-              <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F5380%2Fvd2jueavxoxdrb5l__400_400.jpg&w=400&q=75" alt="플랜얼라이언스" />
-              <div className="jf-items">
+                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F5380%2Fvd2jueavxoxdrb5l__400_400.jpg&w=400&q=75" alt="플랜얼라이언스" />
+                <button className="bookmark-icon">
+                    <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path><path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fillOpacity="0.25"></path></svg>
+                </button>
+                <div className="jf-items">
                     <div className='jf-name'>
                         <div>(모던하우스) 반려동물용품 MD</div>
                         <div className="jf-company-name">모던하우스(MH&Co.)</div>
@@ -372,6 +401,9 @@ function JobsFeed() {
 
             <div className="mc-containers">
                 <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F13316%2Fnxitbyktz7r1pt1y__400_400.png&w=400&q=75" alt="플랜얼라이언스" />
+                <button className="bookmark-icon">
+                    <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path><path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fillOpacity="0.25"></path></svg>
+                </button>
                 <div className="jf-items">
                     <div className='jf-name'>
                         <div>HR Leader</div>
@@ -382,9 +414,12 @@ function JobsFeed() {
                 </div>
             </div>
 
-          <div className="mc-containers">
-              <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F2556%2Fact7w6bg6b0qcbuz__400_400.jpg&w=400&q=75" alt="플랜얼라이언스" />
-              <div className="jf-items">
+            <div className="mc-containers">
+                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F2556%2Fact7w6bg6b0qcbuz__400_400.jpg&w=400&q=75" alt="플랜얼라이언스" />
+                <button className="bookmark-icon">
+                    <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path><path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fillOpacity="0.25"></path></svg>
+                </button>
+                <div className="jf-items">
                     <div className='jf-name'>
                         <div>[인스파이어디] 신입 기획자</div>
                         <div className="jf-company-name">크레비스파트너스</div>

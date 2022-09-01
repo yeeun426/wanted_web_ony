@@ -228,7 +228,8 @@ export const MainContainerStyle = styled.div`
   .mc-containers {
       width: ${(props) => props.width}px;
       margin: 7px;
-
+      position: relative;
+    
     img{
       border-radius: 4px;
       width: 100%;
@@ -250,6 +251,11 @@ export const MainContainerStyle = styled.div`
     }
   }
 
+  .bookmark-icon{
+    position: absolute;
+    top: 11px;
+    right: 7px;
+  }
   .mc-list{
     display: flex;
     row-gap: 50px;
@@ -1802,5 +1808,24 @@ export const JobDetailStyles = styled.div`
     color: #999;
     font-size: 12px;
     font-family:Pretendard-Thin;
+  }
+`;
+
+export const BookmarkStyles = styled.div`
+  h2{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    padding: 50px 0 20px;
+  }
+
+  .bookmark-container{
+    padding-top: 51px;
+  }
+
+  .bookmark-wrapper{
+    width: 1060px;
+    margin: auto;
   }
 `;

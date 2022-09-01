@@ -4,6 +4,7 @@ import Header from '../components/header';
 import Footer from '../components/footer'
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import LoginModal from './login/login';
 
 export default function Company() {
     const [total, setTotal] = useState(true);
@@ -70,10 +71,11 @@ export default function Company() {
     // const max = 3219;
     // setTimeout(() => counter($counter, max), 2000);
     // }
+    const [modal, setModal] = useState(false);
 
     return(
         <CompanyDetailStyle>
-            <Header />
+            <Header test={setModal} page="index" />
             <div>
                 <div className='header-inner-wrapper'>
                     <div className="hiw-container">
@@ -264,6 +266,7 @@ export default function Company() {
                 </div>
             </div>
             <Footer />
+            {modal ? <LoginModal test={setModal} /> : null}
         </CompanyDetailStyle>
     )
 }

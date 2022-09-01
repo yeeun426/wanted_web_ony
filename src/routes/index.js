@@ -6,6 +6,7 @@ import NoMatchPage from '../pages/noMatch';
 import TagSearch from '../pages/search/tagsearch'
 import Company from '../pages/company'
 import JobDetail from '../pages/jobdetail';
+import Bookmark from '../pages/bookmark';
 
 export default function RootRoute() {
   return (
@@ -19,6 +20,7 @@ export default function RootRoute() {
         <Route path="/tagsearch" element={<TagSearch />}  key="tagsearch" />
         <Route path="/company" element={<Company />}  key="company" />
         <Route path="/jobdetail" element={<JobDetail />} key="jobdetail" />
+        <Route path="/bookmark" element={<Bookmark />} key="bookmark" />
 
         {/* 경로가 유효하지 않을 때 */}
         <Route path="*" element={<NoMatchPage />} key="noMatch" />

@@ -1,0 +1,80 @@
+{
+    "position" : [
+        {
+            "id" : 1,
+            "image": "https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F17276%2Fbivyojn2jvwlgtdn__400_400.jpg&w=400&q=75",
+            "title": "Front-end",
+            "info" : "먼슬리키친",
+            "kind": "position",
+            "location" : "서울.한국",
+            "reward" : "채용보상금 1,000,000원",
+            "bookmark" : false
+        },
+        {
+            "id" : 2,
+            "image": "https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F2902%2Flqtwk41cwzf6wlr4__400_400.jpg&w=400&q=75",
+            "title": "Front-end Engineer (TypeScript)",
+            "info" : "브레이브모바일(숨고,Soomgo)",
+            "kind": "position",
+            "location" : "서울.한국",
+            "reward" : "채용보상금 1,000,000원",
+            "bookmark" : false
+        },
+        {
+            "id" : 3,
+            "image": "https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F29808%2Faakraza6yjimfh71__400_400.png&w=400&q=75",
+            "title": "개발자",
+            "info" : "라운드미디어",
+            "kind": "position",
+            "location" : "서울.한국",
+            "reward" : "채용보상금 1,000,000원",
+            "bookmark" : false
+        },
+        {
+            "id" : 4,
+            "image": "https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F25081%2F03itrb8r8jbqjwc3__400_400.png&w=400&q=75",
+            "title": "프론트엔드 개발자(신입)",
+            "info" : "씨드앤",
+            "kind": "position",
+            "location" : "서울.한국",
+            "reward" : "채용보상금 1,000,000원",
+            "bookmark" : false
+        },
+        {
+            "id" : 5,
+            "image": "https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F2057%2Fnleg3vjamchulwgs__400_400.jpg&w=400&q=75",
+            "title": "프론트엔드 개발자(Senior급)",
+            "info" : "휴톰",
+            "kind":"user",
+            "location" : "서울.한국",
+            "bookmark" : false
+        },
+        {
+            "id" : 6,
+            "image": "https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F10127%2Feevirddqe8ytqdq0__400_400.jpg&w=400&q=75",
+            "title": "Frontend Engineer(AI플랫폼 서비스 Web 개발)",
+            "info" : "알체라",
+            "location" : "경기.한국",
+            "kind":"user",
+            "bookmark" : false
+        },
+        {
+            "id" : 7,
+            "image": "https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F10127%2Feevirddqe8ytqdq0__400_400.jpg&w=400&q=75",
+            "title": "Backend Engineer(Server/Cloud)",
+            "info" : "알체라",
+            "location" : "경기.한국",
+            "kind":"user",
+            "bookmark" : false
+        },
+        {
+            "id" : 8,
+            "image": "https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F687%2F17781_2_2.__400_400.jpg&w=400&q=75",
+            "title": "블록체인 프론트엔드 개발자",
+            "info" : "블로코(blocko)",
+            "location" : "경기.한국",
+            "kind":"user",
+            "bookmark" : false
+        }
+    ]
+}

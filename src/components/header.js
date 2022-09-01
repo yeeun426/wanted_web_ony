@@ -67,7 +67,9 @@ export default function Header(props) {
                       <div>지원 현황</div>
                       <div>제안받기 현황</div>
                       <div>좋아요</div>
+                      <Link to ="/bookmark">
                       <div>북마크</div>
+                      </Link>
                       <hr/>
                       <div>추천</div>
                       <div>포인트</div>
@@ -183,6 +185,25 @@ const HeaderItem = styled.div`
     padding: 10px 0;
     box-sizing: border-box;
     cursor: pointer;
+  }
+
+  .mypage-modal-wrapper > a > div{
+    height: 34px;
+    font-size: 14px;
+    font-family: pretendard-thin;
+    padding: 10px 0;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+
+  .mypage-modal-wrapper > a> div:hover{
+    background-color: #f7f7f7;
+    border-radius: 8px;
+  }
+
+  .mypage-modal-wrapper > div:hover{
+    background-color: #f7f7f7;
+    border-radius: 8px;
   }
 
   .mypage-modal-wrapper hr{

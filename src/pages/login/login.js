@@ -116,7 +116,7 @@ export default function LoginPage() {
       userPassword: password,
     })
     .then((res) => {
-      console.log("음",res)
+      console.log(res)
       console.log(res.data.userEmail)
 
       sessionStorage.setItem("id", res.data.userEmail)
@@ -125,7 +125,7 @@ export default function LoginPage() {
 
       alert("로그인 성공")
 
-      document.location.href = "/";
+      document.location.href = window.location.href;
       console.log(user);
 
     })
