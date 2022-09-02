@@ -7,7 +7,7 @@ import TagSearch from '../pages/search/tagsearch'
 import Company from '../pages/company'
 import JobDetail from '../pages/jobdetail';
 import Bookmark from '../pages/bookmark';
-
+import KakaoLogin from '../pages/login/kakaoLogin';
 export default function RootRoute() {
   return (
     <BrowserRouter>
@@ -21,6 +21,7 @@ export default function RootRoute() {
         <Route path="/company" element={<Company />}  key="company" />
         <Route path="/jobdetail" element={<JobDetail />} key="jobdetail" />
         <Route path="/bookmark" element={<Bookmark />} key="bookmark" />
+        <Route path="/kakaologin" element={<KakaoLogin/>} />
 
         {/* 경로가 유효하지 않을 때 */}
         <Route path="*" element={<NoMatchPage />} key="noMatch" />

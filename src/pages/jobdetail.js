@@ -3,6 +3,7 @@ import {JobDetailStyles, MainContainerStyle} from '../components/styled';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import axios from 'axios';
+import jobsfeed from '../data/jobsfeed.json';
 
 // swiper 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,6 +12,41 @@ SwiperCore.use([Pagination])
 
 export default function JobDetail(){
     const [jobDetail, setJobDetail] = useState([]);
+    const positionList = jobsfeed.position.filter(jobsfeed => (jobsfeed.kind === "position"));
+    
+    const [bookmark,setBookmark] = useState([]);
+
+    const JobDetailInfo = async() => {
+        try {
+          //응답 성공
+          const response = await axios.get('https://prod.wook2.xyz/employment/1');
+          setJobDetail(response.data.result);
+          console.log(response.data);
+        } catch (error) {
+          //응답 실패
+          console.error(error);
+        }
+      }
+
+      useEffect(() => {
+        JobDetailInfo();
+      }, [])
+
+    const BookMarkBtn = (e) => {
+        jobsfeed.position[e.currentTarget.id-1].bookmark
+        ? jobsfeed.position[e.currentTarget.id-1].bookmark = false
+        : jobsfeed.position[e.currentTarget.id-1].bookmark = true
+
+        jobsfeed.position.map((item)=>{
+            if(jobsfeed.position[e.currentTarget.id-1].id === item.id) 
+            // setBookmark(item);
+        console.log(jobsfeed.position)
+        })
+    }
+
+    console.log(jobDetail)
+    useEffect(() => {   
+    }, [bookmark.like]);
 
     const BtnBookMark = async() => {
         try {
@@ -22,26 +58,6 @@ export default function JobDetail(){
             console.error(error);
           }
     }
-
-    const JobDetailInfo = async() => {
-        try {
-          //응답 성공
-          const response = await axios.get('https://prod.wook2.xyz/employment',{
-            params: {
-                employmentId:1
-            }
-          });
-          setJobDetail(response.data);
-          console.log(response.data);
-        } catch (error) {
-          //응답 실패
-          console.error(error);
-        }
-      }
-
-      useEffect(() => {
-        JobDetailInfo();
-      }, [])
 
     return(
         <JobDetailStyles>
@@ -65,10 +81,10 @@ export default function JobDetail(){
             </Swiper>
 
                 <div className="jdw-name-info">
-                    <h2>Frontend Engineer(AI플랫폼 서비스 Web 개발)</h2>
+                    <h2>Software Engineer, Frontend</h2>
 
                     <div className="jdw-sub-name">
-                        <div className="jdw-company-name">알체라</div>
+                        <div className="jdw-company-name">오늘의 집</div>
                         <div className="jdw-response-level">응답률 평균 이상</div>
                         <div clssName="jdw-location">서울 . 한국</div>
                     </div>
@@ -195,9 +211,9 @@ export default function JobDetail(){
 
                 <div className="company-info">
                     <div className="ci-info-sub">
-                        <img src="https://static.wanted.co.kr/images/wdes/0_5.3da92f3a.jpg"  alt=""/>
+                        <img src="https://dummyimage.com/400x400/000/fff&text=%EC%98%A4%EB%8A%98%EC%9D%98%EC%A7%91"  alt=""/>
                         <div className="ci-name">
-                            <h5>알체라</h5>
+                            <h5>오늘의 집</h5>
                             <h6>IT, 컨텐츠</h6>
                         </div>
                     </div>
@@ -258,22 +274,29 @@ export default function JobDetail(){
             </div>
 
             <MainContainerStyle width={250} height={188}>
-                    <div className="jdw-position-recommend">이예은님, 이 포지션을 찾고 계셨나요?</div>
-                    <div className="mc-list">
+                    <div className="jdw-position-recommend">{sessionStorage.getItem('id')}님, 이 포지션을 찾고 계셨나요?</div>
+                    <div className="mc-list" style={{flexWrap:"wrap"}}>
                         {Array.isArray(jobDetail.associatedEmployment)
                         && jobDetail.associatedEmployment.map((position)=>(
-                            <div className="mc-containers">
-                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F29454%2Fpjxtg3m25hlip1fm__400_400.png&w=400&q=75" alt="" />
+                        <div className="mc-containers">
+                            <img src="https://dummyimage.com/600x400/000/fff.png&text=오늘의집1" alt="드림에이스"/>
+                            <button id={position.id} className="bookmark-icon" onClick={BookMarkBtn}>
+                                {!position.bookmark
+                                ?<svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path><path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fillOpacity="0.25"></path></svg>
+                                :<svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path><path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="rgb(51,102,255)"></path></svg>
+                                }
+                                </button>
                             <div className="jf-items">
                                 <div className='jf-name'>
                                     <div>{position.title}</div>
-                                    <div className="jf-company-name">{position.context}</div>
+                                    {/* <div className="jf-company-name">{position.context}</div> */}
                                     <span>{position.country}.{position.location}</span>
                                     <div className="jf-reward">채용보상금 {position.referralCompensation}원</div>
                                 </div>
                             </div>
                         </div>
-                        ))}
+                    ))}
+                        {/* ))} */}
                     </div>
                 </MainContainerStyle>
             <Footer/>

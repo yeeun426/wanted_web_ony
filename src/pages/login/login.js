@@ -5,6 +5,8 @@ import { ModalOverlayStyle } from '../../components/styled';
 import axios from 'axios'; 
 // import {API, checkUserInfo} from './utils'
 import { useNavigate } from 'react-router-dom';
+import {KAKAO_AUTH_URL} from '../../utils/OAuth';
+
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -74,7 +76,7 @@ export default function LoginPage() {
     })
     .then((response) => {
       alert('회원가입 성공!');
-      navigate("/", {replace:true});
+      document.location.href = window.location.href;
       console.log('User profile', response.data.userEmail);
       console.log("User token", response.data.jwt);
       localStorage.setItem('token', response.data.jwt);
@@ -106,6 +108,8 @@ export default function LoginPage() {
       alert(error.response.data.message)
     })
   };
+
+  //카카오 로그인
 
   let sessionStorage = window.sessionStorage;
   // login
@@ -194,10 +198,12 @@ export default function LoginPage() {
 
           <SnsLoginStyle>
             <div className="sns-items">
+            <a href={KAKAO_AUTH_URL}>
               <button id="login-kakao">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21"><path fill="#000" fillRule="nonzero" d="M11 0C5.242 0 0 3.823 0 8.539c0 2.932 1.904 5.519 4.804 7.056l-1.22 4.479c-.107.397.343.712.69.483l5.348-3.548c.452.044.91.069 1.377.069 6.076 0 11-3.823 11-8.54 0-4.715-4.924-8.538-11-8.538"></path></svg>
                 <div className="sns-name">Kakao</div>
               </button>
+            </a>
             </div>
 
             <div className="sns-items">
