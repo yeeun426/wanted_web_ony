@@ -1,3 +1,49 @@
+# Airbnb (클론코딩)
+--------------
+## Project Purpose
+> 본 프로젝트는 라이징캠프 서버 개발자분들과 협업하여 원티드를 클론코딩하였다.
+> <br/>제작기간은 22-08-20 ~ 2022-09-02로 2주이다.
+--------------
+## Project Idea
+> 본 프로젝트에서는 직접 Postman을 사용하며 서버개발자들과 소통할 수 있는 경험이었다.<br/>
+> 처음으로 개발자가 만든 api를 연동시키는 연습을 할 수 있었다. <br/>
+> api 명세서를 보면서 서버 개발자분들과 소통하며 프로젝트를 진행했다.
+--------------
+## Current Folder Structure
+> #### 🗂 *src/atoms*
+> > ⌙리코일을 사용하는 코드를 담아두고있다.
+> #### 🗂 *src/components*
+> > ⌙공통 컴포넌트들을 포함하고있다.
+> #### 🗂 *src/data*
+> > ⌙api를 넣기 전에 테스트하기 위한 더미데이터를 담아두고있다.
+> #### 🗂 *src/imgs*
+> > ⌙구현에 필요한 이미지 파일들을 포함하고 있다.
+> #### 🗂 *src/pages*
+> > ⌙웹 상의 모든 페이지들이 있다.
+> #### 🗂 *src/routes*
+> > ⌙페이지 간의 이동을 담은 코드를 담아두고 있다.
+> #### 🗂 *src/utils*
+> > ⌙소셜로그인에 필요한 데이터들을 담고있다.
+-------------
+## Project Preview
+> 시현 영상 <br>
+https://drive.google.com/drive/folders/1kqTYssxoAYglwE3fiOZ2iuflulpIJ2lV
+<br>(코로나 확진으로 인해 목상태가 좋지 않습니다.)
+-------------
+## Project Environment
+> > <img src = "https://user-images.githubusercontent.com/88296511/217285156-6deaeb5d-38cf-4311-a529-cb6534d53c7f.png" width="250" height="150">
+>
+-------------
+## Project Role
+> **frontend** : yeeun426
+>
+-------------
+## Source
+> 에어비앤비 이미지 그대로 사용
+>
+-------------
+<br/>
+
 ## 2022-08-20 토 진행상황
 + 개발환경 세팅
 + 기획서 확인
